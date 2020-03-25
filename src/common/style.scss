@@ -1,0 +1,92 @@
+.avatar___container____ {
+  margin-top: 28px;
+}
+
+.avatar___container____ h6 {
+  text-align: center;
+}
+.react-select__border__red {
+  border: solid 1px red !important;
+}
+.DropzoneExample {
+  margin-bottom: 20px;
+}
+.edit-user-details__avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  max-width: 7.5rem;
+  box-shadow: 0 2px 0 rgba(90, 97, 105, 0.11), 0 4px 8px rgba(90, 97, 105, 0.12),
+    0 10px 10px rgba(90, 97, 105, 0.06), 0 7px 70px rgba(90, 97, 105, 0.1);
+  cursor: pointer;
+}
+.edit-user-details__avatar:hover .overlay {
+  display: block;
+  cursor: pointer;
+}
+.edit-user-details__avatar img {
+  width: 100%;
+}
+.overlay {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  background: #f8f9fac7;
+  display: none;
+  cursor: pointer;
+}
+.overlay :hover {
+  opacity: 1;
+}
+
+.overlay i {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+  font-size: 20px;
+}
+.edit-user-details__avatar__change {
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.875rem;
+  background: hsla(0, 0%, 100%, 0.95);
+  -webkit-transition: all 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06);
+  transition: all 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06);
+  cursor: pointer;
+}
+.form-control {
+  height: auto;
+  padding: 0.4375rem 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #e1e5eb;
+  font-weight: 300;
+  will-change: border-color, box-shadow;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  -webkit-transition: box-shadow 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06),
+    border 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06);
+  transition: box-shadow 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06),
+    border 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06);
+}
+.theme_user_theme {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+}

@@ -1,0 +1,17 @@
+.Logo {
+	width: 120px;
+	height: 124.40;
+
+}
+.navbar {
+	height: 99px;
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.04), 0 0px 0px rgba(0, 0, 0, 0.04);
+}
+.lang {
+  color: #da2323;
+  font-size: 20px;
+}
+.dropdownitem:hover {
+	color: #da2323;
+}
+

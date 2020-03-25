@@ -1,0 +1,54 @@
+.RowHome {
+}
+.FooterHome {
+  bottom: 0;
+  width: 100%;
+}
+.Container {
+  height: calc(100% - 80px);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+.Modal {
+  box-shadow: none;
+}
+/* .Card {
+  max-width: 400px;
+} */
+.FooterHome div {
+  justify-content: center !important;
+}
+.FormSelect {
+  margin-bottom: 20px;
+}
+.Col {
+  flex: 0 0 0;
+}
+@media (min-width: 412px) {
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  .Container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .Col {
+    flex: 0 0 100%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

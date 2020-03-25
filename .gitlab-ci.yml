@@ -1,0 +1,24 @@
+stages:
+  - deploy
+deploy-proresil-front:  
+  stage: deploy 
+  environment: prod
+  before_script:  
+    - 'which ssh-agent || ( apt-get update -y && apt-get install rsync openssh-client zip unzip -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n \tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - 'echo -e "Host * \n Port 2222 \n  " >> ~/.ssh/config'
+
+
+  script:
+  - apt-get update && apt-get install -y rsync
+  - ssh www-data@188.165.253.168 "cd /var/www/proresil-front/ && npm i"
+  - ssh www-data@188.165.253.168 "cd /var/www/proresil-front/ && CI=false npm run build" 
+  - rsync -avz --no-perms --no-owner --no-group  --delete  * www-data@188.165.253.168:/var/www/proresil-front/
+  only:
+    - master
+  when: always
+
+
