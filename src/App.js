@@ -8,7 +8,6 @@ import { getDirection } from './helpers/Utils';
 import './overridecss.css';
 
 const ViewMain = React.lazy(() => import(/* webpackChunkName: "views" */ './views'));
-const ViewHome = React.lazy(() => import(/* webpackChunkName: "views" */ './views/app/home'));
 const ViewApp = React.lazy(() => import(/* webpackChunkName: "views-app" */ './views/app'));
 const ViewUser = React.lazy(() => import(/* webpackChunkName: "views-user" */ './views/user'));
 const ViewError = React.lazy(() => import(/* webpackChunkName: "views-error" */ './views/error'));
@@ -59,7 +58,6 @@ class App extends Component {
 							<Router>
 								<Switch>
 									<AuthRoute path="/app" authUser={authUser} component={ViewApp} />
-									<Route path="/home" component={ViewHome} />
 									<Route path="/user" render={(props) => <ViewUser {...props} />} />
 									<Route path="/error" exact render={(props) => <ViewError {...props} />} />
 									<Route path="/" exact render={(props) => <ViewMain {...props} />} />
@@ -77,7 +75,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
 	return {
 		lang: state.settings.locale,
-		authUser: state.auth.token !== null,
+		authUser: state.auth.loaded,
 		theme: state.auth.response.theme
 	};
 };

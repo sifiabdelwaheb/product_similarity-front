@@ -26,8 +26,6 @@ const reducers = combineReducers({
 
   editUser,
 
-  packhome,
-
   deleteUser,
 });
 

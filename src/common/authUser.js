@@ -1,10 +1,10 @@
 function loginForm() {
   return {
-    username: {
+    useremail: {
       elementType: "Input",
       elementConfig: {
         type: "text",
-        label: "user.username"
+        label: "useremail"
         // prefix: <Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />
       },
       value: "",
