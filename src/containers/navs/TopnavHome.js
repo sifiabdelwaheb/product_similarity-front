@@ -13,7 +13,6 @@ import {
 	DropdownMenu,
 	DropdownItem
 } from 'reactstrap';
-import MobilarLogo from '../../assets/svg/mobilar_logo_fr';
 import { localeOptions } from '../../constants/defaultValues';
 import { setDirection } from '../../helpers/Utils';
 import { changeLocale } from '../../redux/actions';

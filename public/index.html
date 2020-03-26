@@ -2,17 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="https://freesvg.org/img/1538298822.png">
+
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="title" content="Assurances &amp; prévoyance en Suisse | la Mobilière">
-    <meta name="description" content="La Mobilière est la plus ancienne société d'assurances &amp; prévoyance privée de la Suisse. Un ménage sur trois est assuré à la Mobilière.">
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="/assets/fonts/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="/assets/fonts/iconsmind-s/css/iconsminds.css">
-   
+    <link
+      rel="stylesheet"
+      href="/assets/fonts/simple-line-icons/css/simple-line-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/fonts/iconsmind-s/css/iconsminds.css"
+    />
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -22,26 +28,26 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Chatbot</title>
+    <title> assistant-virtuel</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>
-      var theme = "light.red";
-      if (typeof Storage !== "undefined") {
-          if (localStorage.getItem("__theme_color")) {
-              theme = localStorage.getItem("__theme_color");
-          }else{
-            localStorage.setItem("__theme_color",theme)
-          }
+      var theme = 'light.red';
+      if (typeof Storage !== 'undefined') {
+        if (localStorage.getItem('__theme_color')) {
+          theme = localStorage.getItem('__theme_color');
+        } else {
+          localStorage.setItem('__theme_color', theme);
+        }
       }
-      if(theme.indexOf("dark") != -1) {
-          document.documentElement.style.background = "#1b191b";
+      if (theme.indexOf('dark') != -1) {
+        document.documentElement.style.background = '#1b191b';
       }
-  </script>
-  <div id="root">
+    </script>
+    <div id="root">
       <div class="loading"></div>
-  </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -8,11 +8,10 @@ export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
 export const defaultLocale = 'en';
 export const localeOptions = [
-	{ id: 'en', name: 'English', direction: 'ltr' },
-	{ id: 'de', name: 'German', direction: 'ltr' },
-	{ id: 'fr', name: 'Frensh', direction: 'ltr' }
-];
+  { id: 'en', name: 'English', direction: 'ltr' },
 
+  { id: 'fr', name: 'Frensh', direction: 'ltr' },
+];
 
 export const searchPath = '/app/pages/search';
 export const servicePath = 'https://api.coloredstrategies.com';
