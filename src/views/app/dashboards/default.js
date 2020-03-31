@@ -1,12 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { injectIntl } from 'react-intl';
-import { useSelector } from 'react-redux';
+import React, { Component } from 'react';
+import * as d3 from 'd3';
+import Chatbot from './chatbot/chatbot';
+import Header from './Header';
 
-import { Colxx } from '../../../components/common/CustomBootstrap';
-
-function DefaultDashboard(props) {
-  let content = <Colxx xxs="12" className="mb-3"></Colxx>;
-
-  return content;
+class DefaultDashboard extends Component {
+  render() {
+    return (
+      <div>
+        <Chatbot />
+      </div>
+    );
+  }
 }
-export default injectIntl(DefaultDashboard);
+export default DefaultDashboard;

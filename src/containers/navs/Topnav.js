@@ -215,28 +215,53 @@ class TopNav extends Component {
     return (
       <Navbar color="light" light expand="md">
         <div className={'container'}>
-          <NavbarBrand>
-            <img
-              src={require('../../assets/images/bot.png')}
-              className={Classes.Logo}
-            />
+          <NavbarBrand style={{ maxWidth: '202px' }}>
+            <img src={require('../../assets/images/bot.png')} />
           </NavbarBrand>
         </div>
-        <div style={{ width: '230px', marginRight: '1px', paddingTop: '6px'}}>
+        <div className="d-inline-block"></div>
+        <div style={{ width: '330px', marginRight: '1px', paddingTop: '6px' }}>
           <div
             className="name mr-1 font-weight-bold h4"
-            style={{ width: '230px', marginRight: '1px'}}
+            style={{ width: '230px', marginLeft: '120px' }}
           >
             {this.props.auth.response.username}
           </div>
         </div>
+        <UncontrolledDropdown className="mr-2">
+          <DropdownToggle
+            caret
+            color="light"
+            size="sm"
+            className="language-button"
+          >
+            <span className="name">{this.state.lang}</span>
+          </DropdownToggle>
+          <DropdownMenu className="mt-3" right>
+            {localeOptions.map(l => {
+              return (
+                <DropdownItem
+                  onClick={() => this.handleChangeLocale(l.id, l.direction)}
+                  key={l.id}
+                >
+                  {l.name}
+                </DropdownItem>
+              );
+            })}
+          </DropdownMenu>
+        </UncontrolledDropdown>
         <div className="navbar-right">
           {/* {isDarkSwitchActive && <TopnavDarkSwitch />} */}
 
           <div className="user d-inline-block">
             <UncontrolledDropdown className="dropdown-menu-right">
               <DropdownToggle>
-                <div className="name mr-1 font-weight-bold h5" style={{color:'#ffffff'}}>Logout</div>
+                <div
+                  className="name mr-1 font-weight-bold h6"
+                  style={{ color: '#ffffff', borderRadius: '12px' }}
+                >
+                  Logout
+                </div>
               </DropdownToggle>
               <DropdownMenu className="mt-3" right>
                 <DropdownItem onClick={this.handleLogout}>

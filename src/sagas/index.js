@@ -3,9 +3,8 @@ import auth from './auth';
 import packages from './package';
 
 import language from './language';
-import users from './users';
 
-const sagas = [...auth, ...packages, ...users, ...language];
+const sagas = [...auth, ...packages, ...language];
 function* rootSaga() {
   const globalSagasForks = sagas.map(saga => fork(saga));
   yield all([...globalSagasForks]);

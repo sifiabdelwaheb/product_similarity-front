@@ -45,10 +45,9 @@ function Login(props) {
     };
     //
   }, [redux.auth.error]);
- 
 
   useEffect(() => {
-    if (redux.auth.token ) {
+    if (redux.auth.token) {
       dispatch(
         changeLocale(
           redux.auth.response.language ||
@@ -106,7 +105,11 @@ function Login(props) {
   const onLogin = data => {
     dispatch(loginAction.authUserRequest(data));
   };
-
+  setTimeout(() => {
+    var event = document.createEvent('HTMLEvents');
+    event.initEvent('resize', false, false);
+    window.dispatchEvent(event);
+  }, 350);
   const onContactUS = () => {
     setClick(true);
     if (isValid) {
@@ -160,6 +163,7 @@ function Login(props) {
                   <span className="bounce2" />
                   <span className="bounce3" />
                 </span>
+
                 <span className="label">
                   {redux.auth.fetching !== null || !redux.auth.fetching ? (
                     <IntlMessages
@@ -178,29 +182,6 @@ function Login(props) {
           onClickLogin={() => onClickLogin()}
         />
 
-        <div className={`container  ${Classes.Container}`}>
-          {data.map(item => {
-            return (
-              <Card
-                xs="12"
-                sm="12"
-                md="6"
-                packageImg={'https://api-mobilar.wereact.co/' + item.image}
-                package={item.name}
-                withImgCard={true}
-                Card={Classes.Card}
-                Col={Classes.Col}
-                description={item.description}
-                //price={item.price}
-                onClickCard={() => onClickCard()}
-              >
-                <Button color="primary">
-                  <IntlMessages id="Home.packageOne" />
-                </Button>
-              </Card>
-            );
-          })}
-        </div>
         <div className={`container  ${Classes.Container}`}>
           <Card
             xs="12"
@@ -226,12 +207,16 @@ function Login(props) {
               setValidation={setValidation}
               // errorMessage={redux.contactUs.response}
             />
-            {redux.contactUs.loaded && (
-              <p style={{ color: 'green' }}>Mesaage sended successfuly</p>
-            )}
+
             <Button onClick={() => onContactUS()} color="primary">
               <IntlMessages id="pages.send" />
             </Button>
+
+            {redux.RegisterUserRedux.loaded ? (
+              <p style={{ color: 'green' }}>user register successfuly</p>
+            ) : (
+              ''
+            )}
           </Card>
         </div>
         <Navbar className={Classes.FooterHome} color="light" light expand="md">
