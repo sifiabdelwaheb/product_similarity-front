@@ -6,10 +6,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   Navbar,
-  Input,
   NavbarBrand,
 } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 
 import logoutAction from '../../redux/auth/authUserRedux';
@@ -18,20 +16,9 @@ import {
   clickOnMobileMenu,
   changeLocale,
 } from '../../redux/actions';
-import allUsersActions from '../../redux/users/getAllUsersRedux';
 import allLanguageActions from '../../redux/language/updateLanguageRedux';
 
-import {
-  menuHiddenBreakpoint,
-  searchPath,
-  localeOptions,
-  isDarkSwitchActive,
-} from '../../constants/defaultValues';
-
-import { MobileMenuIcon, MenuIcon } from '../../components/svg';
-import TopnavEasyAccess from './Topnav.EasyAccess';
-import TopnavNotifications from './Topnav.Notifications';
-import TopnavDarkSwitch from './Topnav.DarkSwitch';
+import { localeOptions } from '../../constants/defaultValues';
 
 import { getDirection, setDirection } from '../../helpers/Utils';
 import Classes from './style.module.css';
@@ -62,124 +49,6 @@ class TopNav extends Component {
     setTimeout(() => {
       window.location.reload();
     }, 500);
-  };
-  isInFullScreen = () => {
-    return (
-      (document.fullscreenElement && document.fullscreenElement !== null) ||
-      (document.webkitFullscreenElement &&
-        document.webkitFullscreenElement !== null) ||
-      (document.mozFullScreenElement &&
-        document.mozFullScreenElement !== null) ||
-      (document.msFullscreenElement && document.msFullscreenElement !== null)
-    );
-  };
-  handleSearchIconClick = e => {
-    if (window.innerWidth < menuHiddenBreakpoint) {
-      let elem = e.target;
-      if (!e.target.classList.contains('search')) {
-        if (e.target.parentElement.classList.contains('search')) {
-          elem = e.target.parentElement;
-        } else if (
-          e.target.parentElement.parentElement.classList.contains('search')
-        ) {
-          elem = e.target.parentElement.parentElement;
-        }
-      }
-
-      if (elem.classList.contains('mobile-view')) {
-        this.search();
-        elem.classList.remove('mobile-view');
-        this.removeEventsSearch();
-      } else {
-        elem.classList.add('mobile-view');
-        this.addEventsSearch();
-      }
-    } else {
-      this.search();
-    }
-  };
-  addEventsSearch = () => {
-    document.addEventListener('click', this.handleDocumentClickSearch, true);
-  };
-  removeEventsSearch = () => {
-    document.removeEventListener('click', this.handleDocumentClickSearch, true);
-  };
-
-  handleDocumentClickSearch = e => {
-    let isSearchClick = false;
-    if (
-      e.target &&
-      e.target.classList &&
-      (e.target.classList.contains('navbar') ||
-        e.target.classList.contains('simple-icon-magnifier'))
-    ) {
-      isSearchClick = true;
-      if (e.target.classList.contains('simple-icon-magnifier')) {
-        this.search();
-      }
-    } else if (
-      e.target.parentElement &&
-      e.target.parentElement.classList &&
-      e.target.parentElement.classList.contains('search')
-    ) {
-      isSearchClick = true;
-    }
-
-    if (!isSearchClick) {
-      const input = document.querySelector('.mobile-view');
-      if (input && input.classList) input.classList.remove('mobile-view');
-      this.removeEventsSearch();
-      this.setState({
-        searchKeyword: '',
-      });
-    }
-  };
-  handleSearchInputChange = e => {
-    this.setState({
-      searchKeyword: e.target.value,
-    });
-  };
-  handleSearchInputKeyPress = e => {
-    if (e.key === 'Enter') {
-      this.search();
-    }
-  };
-
-  search = () => {
-    this.props.history.push(searchPath + '/' + this.state.searchKeyword);
-    this.setState({
-      searchKeyword: '',
-    });
-  };
-
-  toggleFullScreen = () => {
-    const isInFullScreen = this.isInFullScreen();
-
-    var docElm = document.documentElement;
-    if (!isInFullScreen) {
-      if (docElm.requestFullscreen) {
-        docElm.requestFullscreen();
-      } else if (docElm.mozRequestFullScreen) {
-        docElm.mozRequestFullScreen();
-      } else if (docElm.webkitRequestFullScreen) {
-        docElm.webkitRequestFullScreen();
-      } else if (docElm.msRequestFullscreen) {
-        docElm.msRequestFullscreen();
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
-    }
-    this.setState({
-      isInFullScreen: !isInFullScreen,
-    });
   };
 
   handleLogout = async () => {
@@ -219,21 +88,20 @@ class TopNav extends Component {
             <img src={require('../../assets/images/bot.png')} />
           </NavbarBrand>
         </div>
-        <div className="d-inline-block"></div>
         <div style={{ width: '330px', marginRight: '1px', paddingTop: '6px' }}>
           <div
             className="name mr-1 font-weight-bold h4"
-            style={{ width: '230px', marginLeft: '120px' }}
+            style={{ width: '230px', marginLeft: '120px', color: '#000' }}
           >
             {this.props.auth.response.username}
           </div>
         </div>
-        <UncontrolledDropdown className="mr-2">
+        <UncontrolledDropdown>
           <DropdownToggle
             caret
-            color="light"
+            color="#"
             size="sm"
-            className="language-button"
+            style={{ backgroundColor: '#da2323' }}
           >
             <span className="name">{this.state.lang}</span>
           </DropdownToggle>
@@ -250,19 +118,23 @@ class TopNav extends Component {
             })}
           </DropdownMenu>
         </UncontrolledDropdown>
-        <div className="navbar-right">
+
+        <div className="mt-3" left>
           {/* {isDarkSwitchActive && <TopnavDarkSwitch />} */}
 
-          <div className="user d-inline-block">
-            <UncontrolledDropdown className="dropdown-menu-right">
-              <DropdownToggle>
-                <div
-                  className="name mr-1 font-weight-bold h6"
-                  style={{ color: '#ffffff', borderRadius: '12px' }}
-                >
-                  Logout
-                </div>
-              </DropdownToggle>
+          <div className="user d-inline-block" style={{ marginLeft: '30px' }}>
+            <UncontrolledDropdown>
+              <DropdownToggle
+                caret
+                color="#"
+                size="sm"
+                style={{
+                  backgroundColor: '#f8f9fa',
+                  width: '70px',
+                  height: '70px',
+                }}
+              ></DropdownToggle>
+
               <DropdownMenu className="mt-3" right>
                 <DropdownItem onClick={this.handleLogout}>
                   <IntlMessages id={'topnav.signout'} />

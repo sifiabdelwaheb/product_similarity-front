@@ -1,6 +1,10 @@
-import React, { useState } from "react";
-import IntlMessages from "../../helpers/IntlMessages";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import IntlMessages from '../../helpers/IntlMessages';
+import PropTypes from 'prop-types';
+import registerUserAction from '../../redux/package/RegisterUserRedux';
+import { useDispatch, useSelector } from 'react-redux';
+import loginAction from '../../redux/auth/authUserRedux';
+
 import {
   Button,
   Collapse,
@@ -11,17 +15,21 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
-} from "reactstrap";
-import { localeOptions } from "../../constants/defaultValues";
-import { setDirection } from "../../helpers/Utils";
-import { changeLocale } from "../../redux/actions";
-import Classes from "./style.module.css";
+  DropdownItem,
+} from 'reactstrap';
+import { localeOptions } from '../../constants/defaultValues';
+import { setDirection } from '../../helpers/Utils';
+import { changeLocale } from '../../redux/actions';
+import FacebookLogin from 'react-facebook-login';
+
+import Classes from './style.module.css';
 function NavBar(props) {
+  const dispatch = useDispatch();
+
   const [lang, setLang] = useState(
-    (localStorage.getItem("currentLanguage") &&
-      localStorage.getItem("currentLanguage").toUpperCase()) ||
-      "EN"
+    (localStorage.getItem('currentLanguage') &&
+      localStorage.getItem('currentLanguage').toUpperCase()) ||
+      'EN',
   );
 
   function handleChangeLocale(locale, direction) {
@@ -32,13 +40,36 @@ function NavBar(props) {
       window.location.reload();
     }, 500);
   }
+
+  const responseFacebook = response => {
+    console.log('response ', response);
+    if (response.status !== 'unknown') {
+      dispatch(
+        registerUserAction.RegisterUserRequest({
+          username: `${response.name}`,
+          useremail: `${response.email}`,
+          password: '1234',
+          adresse: 'Ariana',
+        }),
+      );
+
+      dispatch(
+        loginAction.authUserRequest({
+          useremail: `${response.email}`,
+          password: '1234',
+        }),
+      );
+    }
+  };
   return (
     <>
       <Navbar color="light" light expand="md">
-        <div className={"container"}>
+        <div className={'container'}>
           <NavbarBrand href="/">
-          <img src={require('../../assets/images/bot.png')} className={Classes.Logo} />
-            
+            <img
+              src={require('../../assets/images/bot.png')}
+              className={Classes.Logo}
+            />
           </NavbarBrand>
           <NavbarToggler />
           <Collapse navbar>
@@ -61,28 +92,22 @@ function NavBar(props) {
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
-            {/* <Button
-              color="primary"
-              className={`btn-shadow btn-multiple-state ${
-                props.loading ? "show-spinner" : ""
-              }`}
-              size="lg"
-              onClick={props.onClickRegister}
-            >
-              <span className="spinner d-inline-block">
-                <span className="bounce1" />
-                <span className="bounce2" />
-                <span className="bounce3" />
-              </span>
 
-              <span className="label">
-                <IntlMessages id="user.register-button" />
-              </span>
-            </Button> */}
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+              <FacebookLogin
+                autoLoad={false}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                cssClass={`btn-shadow ${Classes.btnFacebook}`}
+                textButton="Sign In with Facebook"
+                icon="fa fa-facebook"
+              />
+            </div>
+
             <Button
               color="primary"
               className={`btn-shadow btn-multiple-state ${
-                props.loading ? "show-spinner" : ""
+                props.loading ? 'show-spinner' : ''
               }`}
               size="lg"
               onClick={props.onClickLogin}
@@ -107,11 +132,11 @@ function NavBar(props) {
 NavBar.propTypes = {
   loading: PropTypes.bool,
   onClickLogin: PropTypes.func.isRequired,
-  left: PropTypes.string
+  left: PropTypes.string,
 };
 NavBar.defaultProps = {
   loading: null,
   onClickLogin: () => {},
-  left: ""
+  left: '',
 };
 export default NavBar;

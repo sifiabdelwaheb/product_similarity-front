@@ -1,59 +1,61 @@
 import React from 'react';
+import Classes from './style.module.css';
+import classes from './style.module.css';
 
 const Message = props => {
   return (
     <div
-      className="col s12 m8 offset-m2 l6 offset-l3"
+      className={`${
+        props.speaks === 'bot'
+          ? 'card  lighten-2 z-depth-1 left'
+          : 'card lighten-2 z-depth-1 right '
+      }`}
       style={{
-        height: '100px',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'white',
         borderRadius: '12px',
+        minHeight: '60px',
+        margin: 10,
+
+        maxWidth: '330px',
       }}
     >
-      <div
-        className="card-panel  lighten-2 z-depth-1"
-        style={{ height: '100px', backgroundColor: '#ffffff' }}
-      >
-        <div className="row valign-wrapper" style={{ height: '100%' }}>
-          {props.speaks === 'bot' && (
-            <div className="col s8">
-              <a
-                className="btn-floating btn-large waves-effect waves-light red"
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  fontSize: '14px',
-                  color: 'white',
-                  marginRight: '40%',
-                }}
-              >
-                {props.speaks}
-              </a>
-            </div>
-          )}
-          <div className="col s8">
-            <span style={{ color: '#000000', fontSize: '18px' }}>
+      <div className={`${Classes.message}`}>
+        {props.speaks === 'bot' && (
+          <div className={` col s2 ${Classes.chat_message}`}>
+            <img
+              src={require('../../../../assets/images/bot.png')}
+              className={Classes.chat_img}
+            />
+          </div>
+        )}
+
+        {props.speaks === 'me' && (
+          <div className={Classes.text_me}>
+            <span className={Classes.text_text_me}>{props.text}</span>
+          </div>
+        )}
+        {props.speaks === 'bot' && (
+          <div className={` col 10 ${Classes.text_bot}`}>
+            <span style={{ color: '#fff', fontSize: '18px' }}>
               {props.text}
             </span>
           </div>
+        )}
 
-          {props.speaks === 'me' && (
-            <div className="col s2">
-              <a
-                className="btn-floating btn-large waves-effect waves-light left blue"
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  fontSize: '14px',
-                  color: 'white',
-                  marginLeft: '80%',
-                }}
-              >
-                {props.speaks}
-              </a>
-            </div>
-          )}
-        </div>
+        {props.speaks === 'me' && (
+          <div className={` col s2 ${Classes.me_message}`} s>
+            <a
+              className="btn-floating btn-small waves-effect waves-light left black"
+              style={{
+                fontSize: '13px',
+                color: 'white',
+                fontWeight:'bold'
+              }}
+            >
+              {props.speaks}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

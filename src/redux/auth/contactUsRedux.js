@@ -7,7 +7,6 @@ const { Types, Creators } = createActions({
   contactUsRequest: ["data", "fetching"],
   contactUsSuccess: ["response", "connected"],
   contactUsFailure: ["error"],
-  logout: ["token"]
 });
 
 export const contactUsTypes = Types;
@@ -19,7 +18,6 @@ export const INITIAL_STATE = Immutable({
   loaded: null,
   error: null,
   connected: false,
-  token: null,
   data: {}
 });
 const contactUsRequest = (state, { data }) =>
@@ -36,7 +34,6 @@ const contactUsSuccess = (state, { response }) =>
     loaded: true,
     response,
     connected: true,
-    token: response.token
   });
 
 const contactUsFailure = (state, { error }) =>

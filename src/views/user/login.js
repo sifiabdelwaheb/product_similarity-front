@@ -23,18 +23,15 @@ import loginAction from '../../redux/auth/authUserRedux';
 
 const Wrapper = Hoc(InputPattern);
 function Login(props) {
-  const [email] = useState('');
-  const [password] = useState('');
+
   const [modal, setModal] = useState(false);
   const [login, setLogin] = useState(false);
-  const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const [loginErr, setLoginErr] = useState(false);
   const [clicked, setClick] = useState(false);
   const [isValid, setValidation] = useState(false);
   const [forms, setForm] = useState(loginForms());
   const [contactUsform, setContactForm] = useState(contactUsForms().contactUs);
-  const [user, setUser] = useState(null);
 
   const redux = useSelector(state => state);
 
@@ -72,10 +69,7 @@ function Login(props) {
     setLogin(false);
     setModal(true);
   }
-  function onClickCard() {
-    setLogin(false);
-    setModal(true);
-  }
+
 
   const onSendForm = form => {
     let data = {};
@@ -102,6 +96,7 @@ function Login(props) {
       setClick(false);
     }
   };
+ 
   const onLogin = data => {
     dispatch(loginAction.authUserRequest(data));
   };
@@ -131,7 +126,7 @@ function Login(props) {
           <ModalHeader toggle={toggle}>
             {' '}
             <IntlMessages
-              id={login ? 'user.login-button' : 'user.register-button'}
+              id={'user.login-button'}
             />
           </ModalHeader>
           <ModalBody>
@@ -174,6 +169,7 @@ function Login(props) {
                   )}
                 </span>
               </Button>
+              
             </Wrapper>
           </ModalBody>
         </Modal>
@@ -197,12 +193,12 @@ function Login(props) {
               // onClick={() => console.log(onSendForm(contactUsform))}
               form={contactUsform}
               textButton="Connexion"
-              loading={redux.contactUs.fetching}
+              loading={redux.RegisterUser.fetching}
               login={login}
               clicked={clicked}
               setClick={setClick}
-              error={redux.contactUs.error}
-              loaded={redux.contactUs.loaded}
+              error={redux.RegisterUser.error}
+              loaded={redux.RegisterUser.loaded}
               setContactForm={setContactForm}
               setValidation={setValidation}
               // errorMessage={redux.contactUs.response}
@@ -212,7 +208,7 @@ function Login(props) {
               <IntlMessages id="pages.send" />
             </Button>
 
-            {redux.RegisterUserRedux.loaded ? (
+            {redux.RegisterUser.loaded ? (
               <p style={{ color: 'green' }}>user register successfuly</p>
             ) : (
               ''

@@ -6,6 +6,7 @@ import AppLocale from './lang';
 import NotificationContainer from './components/common/react-notifications/NotificationContainer';
 import { getDirection } from './helpers/Utils';
 import './overridecss.css';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ViewMain = React.lazy(() => import(/* webpackChunkName: "views" */ './views'));
 const ViewApp = React.lazy(() => import(/* webpackChunkName: "views-app" */ './views/app'));
@@ -13,12 +14,14 @@ const ViewUser = React.lazy(() => import(/* webpackChunkName: "views-user" */ '.
 const ViewError = React.lazy(() => import(/* webpackChunkName: "views-error" */ './views/error'));
 
 const AuthRoute = ({ component: Component, authUser, ...rest }) => {
+	  const redux = useSelector(state => state);
+
 	console.log('authUser', authUser);
 	return (
 		<Route
 			{...rest}
 			render={(props) =>
-				authUser ? (
+				authUser===true ? (
 					<Component {...props} />
 				) : (
 					<Redirect

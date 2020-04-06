@@ -28,19 +28,14 @@ export const INITIAL_STATE = Immutable({
  
   data: {}
 });
-const authUserRequest = (state, { data }) =>
-  state.merge({
-    fetching: true,
-    error: null,
-    loaded: null
-  });
 
-const authUserSuccess = (state, { response }) =>
+
+const authfacebookSuccess = (state, { response }) =>
   state.merge({
     fetching: false,
     error: false,
     loaded: true,
-    response,
+   
     connected: true,
 
   });

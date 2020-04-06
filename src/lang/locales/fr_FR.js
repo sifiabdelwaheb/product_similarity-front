@@ -248,7 +248,7 @@ module.exports = {
   'pages.comments-title': 'Comments',
   'pages.questions-title': 'Questions',
   'pages.similar-projects': 'Similar Projects',
-  'pages.send': 'Send',
+  'pages.send': 'Envoyer',
   'pages.addComment': 'Add a comment',
   'pages.location': 'Location',
   'pages.responsibilities': 'Responsibilities',

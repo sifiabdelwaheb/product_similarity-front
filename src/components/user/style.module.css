@@ -1,3 +1,30 @@
 .Logo {
   width: 100px;
 }
+.btnFacebook {
+  width: 165px;
+  height: 42px;
+  border-radius: 4px;
+  background: #da2323;
+  border-color: #da2323;
+  color: white;
+  border: 0px transparent;
+  text-align: center;
+  margin: 5px;
+  font-weight: 800;
+}
+.btnFacebook:hover {
+  background: #771010;
+  opacity: 0.7;
+}
+
+.btn-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15) !important;
+  transition: background-color box-shadow 0.1s linear;
+}
+.btn-shadow:hover {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 4px 6px 2px rgba(0, 0, 0, 0.15) !important;
+}
+.btn-shadow:focus {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15), 0 4px 6px 2px rgba(0, 0, 0, 0.15) !important;
+}
