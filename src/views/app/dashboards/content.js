@@ -2,9 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal, ModalBody } from 'reactstrap';
 import { Colxx } from '../../../components/common/CustomBootstrap';
-import iconPlus from '../../../assets/svg/plus.svg';
 import AddButton from './components/AddButton';
-import classes from './style.module.css';
 import { NotificationManager } from '../../../components/common/react-notifications';
 import Classes from './style.module.css';
 import IntlMessages from '../../../helpers/IntlMessages';
@@ -30,7 +28,6 @@ function ContentDashboard(props) {
 	const [ packageDetails, setPackageDetails ] = useState({});
 	const [ clicked, setClick ] = useState(false);
 	const [ isValid, setValidation ] = useState(false);
-	const [ edit, setEdit ] = useState(false);
 	const [ selectedId, setSelectedId ] = useState();
 	const [ deleteVerif, setdeleteVerif ] = useState(false);
 	const [ modalSmall, setModalSmall ] = useState(false);

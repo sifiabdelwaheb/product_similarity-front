@@ -5,17 +5,18 @@
   flex-direction: row;
   min-height: 60px;
   max-width: 324px;
- 
+  box-shadow: 3px 11px 14px 0px #999999;
 }
 
 .chat_message {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   align-content: center;
   border-bottom-left-radius: 12px;
   border-top-left-radius: 12px;
   background-color: #da2323;
+  max-width: 50px;
 }
 
 .me_message {
@@ -28,10 +29,9 @@
 }
 .text_me {
   background-color: white;
-  min-width: 270px;
+  min-width: 190px;
   border-radius: 12px;
   max-width: 280px;
-
 }
 
 .text_text_me {
@@ -42,17 +42,22 @@
   align-items: center;
   align-content: center;
   margin-top: 12px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 .text_bot {
   color: #ffffff;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   align-content: center;
-  min-width: 270px;
+  min-width: 100px;
+
   border-bottom-right-radius: 12px;
   border-top-right-radius: 12px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 
   background-color: #da2323;
 }
@@ -63,22 +68,24 @@
 }
 
 .card_nav {
-  border-radius: 12px;
+  border-radius: 6px;
   background-color: #da2323;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   color: white;
   align-items: center;
   justify-content: center;
   display: flex;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   align-content: center;
   font-weight: 800;
 }
 .card_container {
   height: 440px;
-  width: 420px;
-  right: -25;
+  max-width: 420px;
+  width: 100%;
+
   float: right;
   border-radius: 12px;
 }
@@ -89,6 +96,11 @@
   overflow: auto;
   align-items: center;
   border-radius: 12px;
+
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 .input_message {
@@ -101,7 +113,7 @@
 
 .card_container_hide {
   min-height: 40px;
-  
+
   width: 300px;
   position: absolute;
   bottom: 0;

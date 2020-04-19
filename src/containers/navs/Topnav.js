@@ -55,37 +55,19 @@ class TopNav extends Component {
     await window.location.reload();
     await this.props.logoutHandler();
     await localStorage.removeItem('persist:root');
-    await localStorage.removeItem('__theme_color');
-  };
-
-  menuButtonClick = (e, menuClickCount, containerClassnames) => {
-    e.preventDefault();
-
-    setTimeout(() => {
-      var event = document.createEvent('HTMLEvents');
-      event.initEvent('resize', false, false);
-      window.dispatchEvent(event);
-    }, 350);
-    this.props.setContainerClassnames(
-      ++menuClickCount,
-      containerClassnames,
-      this.props.selectedMenuHasSubItems,
-    );
-  };
-  mobileMenuButtonClick = (e, containerClassnames) => {
-    e.preventDefault();
-    this.props.clickOnMobileMenu(containerClassnames);
+    //await localStorage.removeItem('__theme_color');
   };
 
   render() {
     console.log('lang', this.state.lang);
-    const { containerClassnames, menuClickCount, locale } = this.props;
-    const { messages } = this.props.intl;
     return (
       <Navbar color="light" light expand="md">
         <div className={'container'}>
           <NavbarBrand style={{ maxWidth: '202px' }}>
-            <img src={require('../../assets/images/bot.png')} />
+            <img
+              src={require('../../assets/images/bot.png')}
+              style={{ width: '57%' }}
+            />
           </NavbarBrand>
         </div>
         <div style={{ width: '330px', marginRight: '1px', paddingTop: '6px' }}>
@@ -106,7 +88,7 @@ class TopNav extends Component {
             <span className="name">{this.state.lang}</span>
           </DropdownToggle>
           <DropdownMenu className="mt-3" right>
-            {localeOptions.map(l => {
+            {localeOptions.map((l) => {
               return (
                 <DropdownItem
                   onClick={() => this.handleChangeLocale(l.id, l.direction)}
@@ -148,7 +130,7 @@ class TopNav extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     containerClassnames: state.menu.containerClassnames,
     menuClickCount: state.menu.menuClickCount,
@@ -158,12 +140,12 @@ const mapStateToProps = state => {
     id: state.auth.response.id,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     setContainerClassnames: (parm1, param2, param3) =>
       dispatch(setContainerClassnames(parm1, param2, param3)),
-    clickOnMobileMenu: parm1 => dispatch(clickOnMobileMenu(parm1)),
-    changeLocale: parm1 => dispatch(changeLocale(parm1)),
+    clickOnMobileMenu: (parm1) => dispatch(clickOnMobileMenu(parm1)),
+    changeLocale: (parm1) => dispatch(changeLocale(parm1)),
     logoutHandler: () => dispatch(logoutAction.logout()),
     updateLanguage: (data, id) =>
       dispatch(allLanguageActions.updateLanguageRequest(data, id)),

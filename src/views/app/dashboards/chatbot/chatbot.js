@@ -52,6 +52,8 @@ class Chatbot extends Component {
   RenderMessage(stateMessage) {
     if (stateMessage) {
       return stateMessage.map((message, i) => {
+        console.log('statemassage', stateMessage);
+
         return (
           <Message
             key={i}
@@ -87,12 +89,12 @@ class Chatbot extends Component {
       return (
         <div className={` card ${classes.card_container}`}>
           <nav className={classes.card_nav} onClick={this.hide}>
-            Travel
+            Travel Assitant
           </nav>
           <div id="chatbot" className={classes.render_message}>
             {this.RenderMessage(this.state.message)}
             <div
-              ref={el => {
+              ref={(el) => {
                 this.messageEnd = el;
               }}
               style={{ float: 'left', clear: 'both' }}
@@ -119,21 +121,20 @@ class Chatbot extends Component {
         <div
           className="card"
           style={{
-            minHeight: 40,
-            maxHeight: 400,
+            minHeight: '57px',
+            height: '40px',
             width: 300,
             position: 'absolute',
             bottom: -12,
             right: 10,
             border: '1px solid lightgray',
-            borderRadius: '12px',
           }}
         >
           <nav className={classes.card_nav} onClick={this.show}>
-            Travel
+            Travel Assitant
           </nav>
           <div
-            ref={el => {
+            ref={(el) => {
               this.messageEnd = el;
             }}
             style={{ float: 'left', clear: 'both' }}

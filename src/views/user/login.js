@@ -23,7 +23,6 @@ import loginAction from '../../redux/auth/authUserRedux';
 
 const Wrapper = Hoc(InputPattern);
 function Login(props) {
-
   const [modal, setModal] = useState(false);
   const [login, setLogin] = useState(false);
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ function Login(props) {
   const [forms, setForm] = useState(loginForms());
   const [contactUsform, setContactForm] = useState(contactUsForms().contactUs);
 
-  const redux = useSelector(state => state);
+  const redux = useSelector((state) => state);
 
   useEffect(() => {
     return () => {
@@ -69,9 +68,17 @@ function Login(props) {
     setLogin(false);
     setModal(true);
   }
+  const validateEmail = (value) => {
+    let error;
+    if (!value) {
+      error = 'Please enter your email address';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+      error = 'Invalid email address';
+    }
+    return error;
+  };
 
-
-  const onSendForm = form => {
+  const onSendForm = (form) => {
     let data = {};
     for (let key in form) {
       data[key] = form[key].value;
@@ -96,8 +103,8 @@ function Login(props) {
       setClick(false);
     }
   };
- 
-  const onLogin = data => {
+
+  const onLogin = (data) => {
     dispatch(loginAction.authUserRequest(data));
   };
   setTimeout(() => {
@@ -125,9 +132,7 @@ function Login(props) {
         >
           <ModalHeader toggle={toggle}>
             {' '}
-            <IntlMessages
-              id={'user.login-button'}
-            />
+            <IntlMessages id={'user.login-button'} />
           </ModalHeader>
           <ModalBody>
             <Wrapper
@@ -169,7 +174,6 @@ function Login(props) {
                   )}
                 </span>
               </Button>
-              
             </Wrapper>
           </ModalBody>
         </Modal>
