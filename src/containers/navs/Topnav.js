@@ -9,6 +9,8 @@ import {
   NavbarBrand,
 } from 'reactstrap';
 import { connect, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { MobileMenuIcon, MenuIcon } from '../../components/svg';
 
 import logoutAction from '../../redux/auth/authUserRedux';
 import {
@@ -57,16 +59,80 @@ class TopNav extends Component {
     await localStorage.removeItem('persist:root');
     //await localStorage.removeItem('__theme_color');
   };
+  menuButtonClick = (e, menuClickCount, containerClassnames) => {
+    e.preventDefault();
 
+    setTimeout(() => {
+      var event = document.createEvent('HTMLEvents');
+      event.initEvent('resize', false, false);
+      window.dispatchEvent(event);
+    }, 350);
+    this.props.setContainerClassnames(
+      ++menuClickCount,
+      containerClassnames,
+      this.props.selectedMenuHasSubItems,
+    );
+  };
+  mobileMenuButtonClick = (e, containerClassnames) => {
+    e.preventDefault();
+    this.props.clickOnMobileMenu(containerClassnames);
+  };
   render() {
+    console.log('lang', this.state.lang);
+    const { containerClassnames, menuClickCount, locale } = this.props;
+    const { messages } = this.props.intl;
     console.log('lang', this.state.lang);
     return (
       <Navbar color="light" light expand="md">
+        <div className="d-flex align-items-center navbar-left">
+          <NavLink
+            to="#"
+            location={{}}
+            className="menu-button d-none d-md-block"
+            onClick={(e) =>
+              this.menuButtonClick(e, menuClickCount, containerClassnames)
+            }
+          >
+            <MenuIcon />
+          </NavLink>
+          <NavLink
+            to="#"
+            location={{}}
+            className="menu-button-mobile d-xs-block d-sm-block d-md-none"
+            onClick={(e) => this.mobileMenuButtonClick(e, containerClassnames)}
+          >
+            <MobileMenuIcon />
+          </NavLink>
+
+          {/* <div className="search" data-search-path="/app/pages/search">
+						<Input
+							name="searchKeyword"
+							id="searchKeyword"
+							placeholder={messages['menu.search']}
+							value={this.state.searchKeyword}
+							onChange={(e) => this.handleSearchInputChange(e)}
+							onKeyPress={(e) => this.handleSearchInputKeyPress(e)}
+						/>
+						<span className="search-icon" onClick={(e) => this.handleSearchIconClick(e)}>
+							<i className="simple-icon-magnifier" />
+						</span>
+					</div> */}
+
+          {/* <div className="position-relative d-none d-none d-lg-inline-block">
+            <a
+              className="btn btn-outline-primary btn-sm ml-2"
+              target="_top"
+              href="https://themeforest.net/cart/configure_before_adding/22544383?license=regular&ref=ColoredStrategies&size=source"
+            >
+              <IntlMessages id="user.buy" />
+            </a>
+          </div> */}
+        </div>
         <div className={'container'}>
           <NavbarBrand style={{ maxWidth: '202px' }}>
             <img
-              src={require('../../assets/images/bot.png')}
-              style={{ width: '57%' }}
+              src={require('../../assets/images/logo.JPG')}
+              style={{ width: '100%' }}
             />
           </NavbarBrand>
         </div>

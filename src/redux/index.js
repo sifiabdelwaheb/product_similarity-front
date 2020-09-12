@@ -4,9 +4,9 @@ import settings from './settings/reducer';
 import { reducer as auth } from './auth/authUserRedux';
 import { reducer as contactUs } from './auth/contactUsRedux';
 import { reducer as packageUS } from './package/packageUSRedux';
-import { reducer as RegisterUser} from './package/RegisterUserRedux';
-
-import {reducer as message} from './chatbot/Message'
+import { reducer as RegisterUser } from './package/RegisterUserRedux';
+import { reducer as ProductSimilarity } from './similarity/ProductSimilarity';
+import { reducer as message } from './chatbot/Message';
 import menu from './menu/reducer';
 
 const reducers = combineReducers({
@@ -16,8 +16,8 @@ const reducers = combineReducers({
   contactUs,
   packageUS,
   RegisterUser,
-  message
- 
+  message,
+  ProductSimilarity,
 });
 
 export default reducers;

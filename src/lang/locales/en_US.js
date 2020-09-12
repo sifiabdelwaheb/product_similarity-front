@@ -189,7 +189,7 @@ module.exports = {
   'dashboards.pending-for-publish': 'Pending for publish',
   'dashboards.users': 'Entreprise',
   'dashboards.pack': 'Pack',
-  'dashboards.employee': 'Employee',
+  'dashboards.employee': 'Similarity',
   'dashboards.incapacity': 'Incapacity',
 
   'dashboards.on-approval-process': 'On approval process',
@@ -249,6 +249,7 @@ module.exports = {
   'pages.questions-title': 'Questions',
   'pages.similar-projects': 'Similar Projects',
   'pages.send': 'Send',
+  'pages.predict':'Predict',
   'pages.addComment': 'Add a comment',
   'pages.location': 'Location',
   'pages.responsibilities': 'Responsibilities',

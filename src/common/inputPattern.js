@@ -1,12 +1,12 @@
-import React from "react";
-import { Label, Input, FormGroup } from "reactstrap";
-import IntlMessages from "../helpers/IntlMessages";
-import Select from "react-select";
-import CustomSelectInput from "../components/common/CustomSelectInput";
-import DropzoneExample from "../containers/forms/DropzoneExample";
-import DatePicker from "./datePicker";
-import "./style.scss";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Label, Input, FormGroup, Dropdown } from 'reactstrap';
+import IntlMessages from '../helpers/IntlMessages';
+import Select from 'react-select';
+import CustomSelectInput from '../components/common/CustomSelectInput';
+import DropzoneExample from '../containers/forms/DropzoneExample';
+import DatePicker from './datePicker';
+import './style.scss';
+import PropTypes from 'prop-types';
 const editor = ({
   elementConfig,
   elementType,
@@ -17,18 +17,20 @@ const editor = ({
   error,
   options,
   type,
+  list,
+  title,
   edit,
-  onClick
+  onClick,
 }) => {
   let inputElement = null;
   switch (elementType) {
-    case "Input":
+    case 'Input':
       inputElement = (
-        <Label className="form-group has-float-label mb-4">
+        <Label className="form-group has-float-label mb-6 text-primary">
           <Input
             style={
               (!valid && clicked) || (clicked && error && error !== null)
-                ? { border: "red 1px solid" }
+                ? { border: 'red 1px solid' }
                 : { border: null }
             }
             onChange={onChange}
@@ -38,30 +40,30 @@ const editor = ({
             name={elementConfig.name}
           />
           {(!valid && clicked) || (clicked && error && error !== null) ? (
-            <span style={{ color: "red" }}>
-              {" "}
-              <IntlMessages id={"input.invalid"} />
+            <span style={{ color: 'red' }}>
+              {' '}
+              <IntlMessages id={'input.invalid'} />
             </span>
           ) : null}
           <IntlMessages id={elementConfig.label} />
         </Label>
       );
       break;
-    case "Select":
+    case 'Select':
       inputElement = (
         <FormGroup>
           <label className="text-primary">
-            <IntlMessages  id={elementConfig.label} />
+            <IntlMessages id={elementConfig.label} />
           </label>
           <Select
             components={{ Input: CustomSelectInput }}
             className={
-              !valid && clicked ? "react-select__border__red" : "react-select"
+              !valid && clicked ? 'react-select__border__red' : 'react-select'
             }
             classNamePrefix="react-select"
             name="form-field-name"
             options={options}
-            onChange={e => onChange(e)}
+            onChange={(e) => onChange(e)}
             value={value}
             // defaultInputValue={value}
           />
@@ -70,37 +72,38 @@ const editor = ({
       );
 
       break;
-    case "Avatar":
+
+    case 'Avatar':
       inputElement = (
         <>
-          {edit && value !== "" ? (
+          {edit && value !== '' ? (
             <div
               style={{
-                backgroundImage: "url(" + value + ")",
-                backgroundSize: "cover",
-                height: "175px"
+                backgroundImage: 'url(' + value + ')',
+                backgroundSize: 'cover',
+                height: '175px',
               }}
             />
           ) : null}
           <DropzoneExample
             className={
               !valid && clicked
-                ? "react-select__border__red"
-                : "DropzoneExample"
+                ? 'react-select__border__red'
+                : 'DropzoneExample'
             }
-            eventHandlers={{ addedfile: e => onChange(e) }}
+            eventHandlers={{ addedfile: (e) => onChange(e) }}
           />
           {(!valid && clicked) || (clicked && error && error !== null) ? (
-            <span style={{ color: "red" }}>
-              {" "}
-              <IntlMessages id={"input.invalid"} />
+            <span style={{ color: 'red' }}>
+              {' '}
+              <IntlMessages id={'input.invalid'} />
             </span>
           ) : null}
         </>
       );
 
       break;
-    case "Date":
+    case 'Date':
       inputElement = (
         <DatePicker
           id="date"
@@ -112,7 +115,7 @@ const editor = ({
         />
       );
       break;
-    case "Theme":
+    case 'Theme':
       inputElement = (
         <>
           <label className="text-primary">
@@ -122,7 +125,7 @@ const editor = ({
             <div className="p-4">
               <p className="text-muted mb-2">Light Theme</p>
               <div className="d-flex flex-row justify-content-between mb-4">
-                {["purple", "blue", "green", "orange", "red"].map(color => (
+                {['purple', 'blue', 'green', 'orange', 'red'].map((color) => (
                   <span
                     name={color}
                     key={color}
@@ -130,7 +133,7 @@ const editor = ({
                     className={`theme-color theme-color-${color} active `}
                     onClick={() => onChange(`light.${color}`)}
                     style={{
-                      background: value === `light.${color}` ? color : "#fff"
+                      background: value === `light.${color}` ? color : '#fff',
                     }}
                   >
                     <span>`light.${color}`</span>
@@ -139,16 +142,16 @@ const editor = ({
               </div>
               <p className="text-muted mb-2">Dark Theme</p>
               <div className="d-flex flex-row justify-content-between">
-                {["purple", "blue", "green", "orange", "red"].map(color => (
+                {['purple', 'blue', 'green', 'orange', 'red'].map((color) => (
                   <span
                     name={color}
                     key={`dark.${color}`}
                     href={`#dark.${color}`}
                     className={`theme-color theme-color-${color} `}
                     style={{
-                      background: value === `dark.${color}` ? color : "#fff"
+                      background: value === `dark.${color}` ? color : '#fff',
                     }}
-                    onClick={e => onChange(`dark.${color}`)}
+                    onClick={(e) => onChange(`dark.${color}`)}
                   >
                     <span>`dark.${color}`</span>
                   </span>
@@ -166,6 +169,6 @@ const editor = ({
   return inputElement;
 };
 editor.propTypes = {
-  isvalid: PropTypes.number
+  isvalid: PropTypes.number,
 };
 export default editor;

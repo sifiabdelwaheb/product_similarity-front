@@ -67,7 +67,7 @@ function NavBar(props) {
         <div className={'container'}>
           <NavbarBrand href="/">
             <img
-              src={require('../../assets/images/bot.png')}
+              src={require('../../assets/images/logo.JPG')}
               className={Classes.Logo}
             />
           </NavbarBrand>

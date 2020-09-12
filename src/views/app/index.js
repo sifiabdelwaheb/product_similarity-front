@@ -1,14 +1,14 @@
-import React, { Component, Suspense } from "react";
-import { Route, withRouter, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component, Suspense } from 'react';
+import { Route, withRouter, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import AppLayout from "../../layout/AppLayout";
+import AppLayout from '../../layout/AppLayout';
 
 const Dashboards = React.lazy(() =>
-  import(/* webpackChunkName: "dashboards" */ "./dashboards")
+  import(/* webpackChunkName: "dashboards" */ './dashboards'),
 );
 
-const Menu = React.lazy(() => import(/* webpackChunkName: "menu" */ "./menu"));
+const Menu = React.lazy(() => import(/* webpackChunkName: "menu" */ './menu'));
 
 class App extends Component {
   render() {
@@ -26,12 +26,7 @@ class App extends Component {
               />
               <Route
                 path={`${match.url}/dashboards`}
-                render={props => <Dashboards {...props} />}
-              />
-
-              <Route
-                path={`${match.url}/menu`}
-                render={props => <Menu {...props} />}
+                render={(props) => <Dashboards {...props} />}
               />
 
               <Redirect to="/error" />

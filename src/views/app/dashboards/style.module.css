@@ -4,8 +4,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding-top: 25px;
-  padding-bottom: 30px;
+  
 }
 
 .button {
@@ -30,21 +29,32 @@
   justify-content: center;
   border: solid 1px #ccc;
 }
-.paddingEmp{
+.paddingEmp {
   padding-bottom: 50px;
 }
-.iconplus{
+.iconplus {
   margin-left: 20px;
   width: 20px;
 }
 
-.Modal_title{
+.Modal_title {
   font-size: 22px;
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 800;
   background-color: blueviolet;
 }
-.Modal{
+.Modal {
   width: 78%;
+}
+
+
+.Card{
+  font-size: 18px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  width: 90%;
+
+ 
 }

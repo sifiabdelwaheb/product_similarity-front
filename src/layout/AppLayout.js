@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import TopNav from "../containers/navs/Topnav";
+import TopNav from '../containers/navs/Topnav';
+import TopNabHome from '../containers/navs/TopnavHome';
+import Sidebar from '../containers/navs/Sidebar';
 
 class AppLayout extends Component {
   render() {
@@ -10,7 +12,8 @@ class AppLayout extends Component {
     return (
       <div id="app-container" className={containerClassnames}>
         <TopNav history={this.props.history} />
-        <main>
+        <Sidebar />
+        <main style={{ marginTop: '30px' }}>
           <div className="container-fluid">{this.props.children}</div>
         </main>
       </div>
@@ -24,5 +27,5 @@ const mapStateToProps = ({ menu }) => {
 const mapActionToProps = {};
 
 export default withRouter(
-  connect(mapStateToProps, mapActionToProps)(AppLayout)
+  connect(mapStateToProps, mapActionToProps)(AppLayout),
 );

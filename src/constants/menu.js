@@ -1,13 +1,13 @@
-const data = isSuperAdmin => {
+const data = (isSuperAdmin) => {
   if (isSuperAdmin) {
     return [
       {
-        id: "users",
-        icon: "iconsminds-user",
-        label: "dashboards.users",
-        to: "/app/dashboards/users",
-        subs: []
-      }
+        id: 'users',
+        icon: 'iconsminds-user',
+        label: 'dashboards.users',
+        to: '/app/dashboards/users',
+        subs: [],
+      },
     ];
   } else {
     return [
@@ -19,19 +19,19 @@ const data = isSuperAdmin => {
       //   subs: []
       // },
       {
-        id: "Employee",
-        icon: "simple-icon-people",
-        label: "dashboards.employee",
-        to: "/app/dashboards/employee",
-        subs: []
+        id: 'Employee',
+        icon: 'simple-icon-people',
+        label: 'dashboards.employee',
+        to: '/app/dashboards/users',
+        subs: [],
       },
       {
-        id: "pages-product",
-        icon: "iconsminds-wheelchair",
-        label: "dashboards.incapacity",
-        to: "/app/dashboards/incapacity",
-        subs: []
-      }
+        id: 'pages-product',
+        icon: 'iconsminds-wheelchair',
+        label: 'dashboards.incapacity',
+        to: '/app/dashboards/incapacity',
+        subs: [],
+      },
     ];
   }
 };

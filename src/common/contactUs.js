@@ -2,7 +2,15 @@ function ContactUs(contactUs) {
   this.contactUs = contactUs;
 }
 
+
 function contactUsForm() {
+  const options = [
+    { value: 'blues', label: 'Blues' },
+    { value: 'rock', label: 'Rock' },
+    { value: 'jazz', label: 'Jazz' },
+    { value: 'orchestra', label: 'Orchestra' },
+  ];
+  
   return new ContactUs({
     username: {
       elementType: 'Input',
@@ -64,6 +72,7 @@ function contactUsForm() {
       valid: false,
       touched: false,
     },
+  
   });
 }
 
