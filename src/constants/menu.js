@@ -5,7 +5,7 @@ const data = (isSuperAdmin) => {
         id: 'users',
         icon: 'iconsminds-user',
         label: 'dashboards.users',
-        to: '/app/dashboards/users',
+        to: '/app/dashboards/similarity',
         subs: [],
       },
     ];
@@ -22,14 +22,21 @@ const data = (isSuperAdmin) => {
         id: 'Employee',
         icon: 'simple-icon-people',
         label: 'dashboards.employee',
-        to: '/app/dashboards/users',
+        to: '/app/dashboards/similarity',
         subs: [],
       },
       {
         id: 'pages-product',
         icon: 'iconsminds-wheelchair',
-        label: 'dashboards.incapacity',
-        to: '/app/dashboards/incapacity',
+        label: 'dashboards.moteur',
+        to: '/app/dashboards/moteur',
+        subs: [],
+      },
+      {
+        id: 'pages-profiling',
+        icon: 'iconsminds-wheelchair',
+        label: 'dashboards.usersanalysis',
+        to: '/app/dashboards/profiling',
         subs: [],
       },
     ];

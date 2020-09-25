@@ -6,7 +6,10 @@ import { reducer as contactUs } from './auth/contactUsRedux';
 import { reducer as packageUS } from './package/packageUSRedux';
 import { reducer as RegisterUser } from './package/RegisterUserRedux';
 import { reducer as ProductSimilarity } from './similarity/ProductSimilarity';
+import { reducer as Moteur } from './moteur/MoteruRedux';
 import { reducer as message } from './chatbot/Message';
+import { reducer as profiling } from './profiling/profilingRedux';
+import { reducer as chart } from './profiling/piechart';
 import menu from './menu/reducer';
 
 const reducers = combineReducers({
@@ -18,6 +21,9 @@ const reducers = combineReducers({
   RegisterUser,
   message,
   ProductSimilarity,
+  Moteur,
+  profiling,
+  chart,
 });
 
 export default reducers;

@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom';
 import TopNav from '../containers/navs/Topnav';
 import TopNabHome from '../containers/navs/TopnavHome';
 import Sidebar from '../containers/navs/Sidebar';
+import { Navbar, Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
+import Classes from './style.module.css';
 
 class AppLayout extends Component {
   render() {
@@ -13,9 +15,14 @@ class AppLayout extends Component {
       <div id="app-container" className={containerClassnames}>
         <TopNav history={this.props.history} />
         <Sidebar />
-        <main style={{ marginTop: '30px' }}>
-          <div className="container-fluid">{this.props.children}</div>
-        </main>
+        <div style={{ marginTop: '0px' }}>
+          <div className="container">{this.props.children}</div>
+        </div>
+        <Navbar className={Classes.FooterHome}  expand="md">
+          <div className="container">
+            © assistant-virtuel - 2020 Tous droits réservés.
+          </div>
+        </Navbar>
       </div>
     );
   }

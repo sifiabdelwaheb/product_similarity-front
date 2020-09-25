@@ -1,12 +1,16 @@
 .Container {
   height: calc(100% - 80px);
-  align-items: center;
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  
+  flex-direction: row;
+  width: 50%;
 }
-
+.profiling {
+  height: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 5%;
+}
 .button {
   background-color: blue;
   font-family: 22px;
@@ -48,13 +52,53 @@
   width: 78%;
 }
 
-
-.Card{
+.Cardpie {
   font-size: 18px;
   background-color: white;
   border-radius: 12px;
   display: flex;
-  width: 90%;
+  width: 120%;
+  height: 73%;
+  margin-top: 120px;
+}
 
- 
+.Card {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 120px;
+
+}
+.Cardsearch {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 120px;
+}
+
+.Container_Recherche {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.containerSpan {
+  margin-left: 50%;
+}
+
+
+.containerSpann {
+  margin-left: 30%;
+  margin-top: 200px;
+
 }

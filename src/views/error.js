@@ -37,7 +37,7 @@ class Error extends Component {
                     </p>
                     <p className="display-1 font-weight-bold mb-5">404</p>
                     <Button
-                      href="app/dashboards/users"
+                      href="app/dashboards/similarity"
                       color="primary"
                       className="btn-shadow"
                       size="lg"

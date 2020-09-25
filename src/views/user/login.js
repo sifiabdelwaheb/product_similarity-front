@@ -88,7 +88,7 @@ function Login(props) {
   let content = null;
 
   if (redux.auth.loaded) {
-    content = <Redirect to="/app/dashboards/users" />;
+    content = <Redirect to="/app/dashboards/similarity" />;
   }
 
   const onSendFormHandler = () => {

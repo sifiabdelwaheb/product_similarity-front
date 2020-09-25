@@ -191,6 +191,8 @@ module.exports = {
   'dashboards.pack': 'Pack',
   'dashboards.employee': 'Similarity',
   'dashboards.incapacity': 'Incapacity',
+  'dashboards.usersanalysis': 'Users Analysis',
+  'dashboards.moteur': 'Moteur Recherche',
 
   'dashboards.on-approval-process': 'On approval process',
   'dashboards.alerts': 'Alerts',
@@ -249,7 +251,7 @@ module.exports = {
   'pages.questions-title': 'Questions',
   'pages.similar-projects': 'Similar Projects',
   'pages.send': 'Send',
-  'pages.predict':'Predict',
+  'pages.predict': 'Predict',
   'pages.addComment': 'Add a comment',
   'pages.location': 'Location',
   'pages.responsibilities': 'Responsibilities',
@@ -718,8 +720,8 @@ module.exports = {
   'employee.status': 'Status',
   'employee.edit': 'Edit',
   'employee.delete': 'Delete',
-  'active': 'Active',
-  'notactive': 'Not active',
+  active: 'Active',
+  notactive: 'Not active',
   'email:': 'Email',
   //page employee formulaire
   'user.phone': 'Phone',
@@ -801,6 +803,6 @@ module.exports = {
   'modal.cancel': 'cancel',
   cancel: 'Cancel',
   Envoyée: 'Submit',
-  "global.informations": 'Informations',
-  "global.results" : 'Results'
+  'global.informations': 'Informations',
+  'global.results': 'Results',
 };

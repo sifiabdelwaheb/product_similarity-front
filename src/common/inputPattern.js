@@ -52,19 +52,14 @@ const editor = ({
     case 'Select':
       inputElement = (
         <FormGroup>
-          <label className="text-primary">
-            <IntlMessages id={elementConfig.label} />
-          </label>
           <Select
             components={{ Input: CustomSelectInput }}
-            className={
-              !valid && clicked ? 'react-select__border__red' : 'react-select'
-            }
-            classNamePrefix="react-select"
+            className="react-select"
             name="form-field-name"
             options={options}
             onChange={(e) => onChange(e)}
             value={value}
+            style={{ width: '70%' }}
             // defaultInputValue={value}
           />
           {!valid && clicked && <p className="text-danger" />}

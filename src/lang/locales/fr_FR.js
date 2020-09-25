@@ -191,6 +191,7 @@ module.exports = {
   'dashboards.pack': 'Pack',
   'dashboards.employee': 'Similarities',
   'dashboards.incapacity': 'Incapacity',
+  'dashboards.usersanalysis':'Users Analysis',
 
   'dashboards.on-approval-process': 'On approval process',
   'dashboards.alerts': 'Alerts',

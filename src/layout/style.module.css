@@ -2,7 +2,8 @@
 }
 .FooterHome {
   width: 100%;
-  margin-top:4%;
+  margin-top: 17%;
+  background-color: #f4f4fa;
 }
 .Container {
   height: calc(100% - 80px);
@@ -10,8 +11,9 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  padding-top: 25px;
+  padding-top: 125px;
   padding-bottom: 30px;
+  background-color: brown;
 }
 .Modal {
   box-shadow: none;
