@@ -161,9 +161,9 @@ function Profiling(props) {
 
       <div className={Classes.Container}>
         <Card
-          xs="12"
-          sm="12"
-          md="10"
+          xs="4"
+          sm="4"
+          md="4"
           package={' '}
           withImgCard={false}
           Card={Classes.Card}
@@ -197,9 +197,9 @@ function Profiling(props) {
           </Button>
         </Card>
         <Card
-          xs="12"
-          sm="12"
-          md="20"
+          xs="6"
+          sm="6"
+          md="6"
           package={'Pi Chart with D3js :'}
           withImgCard={false}
           Card={Classes.Cardpie}

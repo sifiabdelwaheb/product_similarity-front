@@ -10,6 +10,7 @@ import { reducer as Moteur } from './moteur/MoteruRedux';
 import { reducer as message } from './chatbot/Message';
 import { reducer as profiling } from './profiling/profilingRedux';
 import { reducer as chart } from './profiling/piechart';
+import {reducer as sentiment} from './sentiment/sentimentRedux'
 import menu from './menu/reducer';
 
 const reducers = combineReducers({
@@ -24,6 +25,7 @@ const reducers = combineReducers({
   Moteur,
   profiling,
   chart,
+  sentiment
 });
 
 export default reducers;

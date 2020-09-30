@@ -12,7 +12,9 @@ const MoteurRecherche = React.lazy(() =>
 const ProfilingUser = React.lazy(() =>
   import(/* webpackChunkName: "dashboard-default" */ './profiling'),
 );
-
+const TwitterSentiment = React.lazy(() =>
+  import(/* webpackChunkName: "dashboard-default" */ './sentiment'),
+);
 
 const Dashboards = ({ match, role }) => (
   <Suspense fallback={<div className="loading" />}>
@@ -28,6 +30,10 @@ const Dashboards = ({ match, role }) => (
       <Route
         path={`${match.url}/profiling`}
         render={(props) => <ProfilingUser {...props} />}
+      />
+      <Route
+        path={`${match.url}/sentiment`}
+        render={(props) => <TwitterSentiment {...props} />}
       />
 
       <Redirect to="/error" />

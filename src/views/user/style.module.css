@@ -1,18 +1,24 @@
+@font-face {
+  font-family: 'Chivo-Italic';
+  src: local('Chivo-Italic'), url('../../assets/Chivo-Italic.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Chivo-Bold';
+  src: local('Chivo-Bold'), url('../../assets/Chivo-Bold.ttf') format('opentype');
+}
+
+
 .RowHome {
 }
 .FooterHome {
   width: 100%;
-  margin-top:4%;
+  margin-top: 19%;
+  background-color: #cf0e48;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
 }
-.Container {
-  height: calc(100% - 80px);
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding-top: 25px;
-  padding-bottom: 30px;
-}
+
 .Modal {
   box-shadow: none;
 }
@@ -51,4 +57,174 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+}
+
+.Card {
+  margin-top: 3%;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: -7%;
+  padding-left: 2.5%;
+}
+.Container2 {
+  height: calc(100% - 80px);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 5px;
+  padding-bottom: 30px;
+}
+.Similarity_Container {
+  height: calc(100% - 80px);
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+.Home_Container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: 5%;
+}
+.profiling {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.button {
+  background-color: blue;
+  font-family: 22px;
+  font-weight: 1000;
+  margin-bottom: 23px;
+  border-radius: 12px;
+}
+.btncnt {
+  align-items: left;
+  align-content: left;
+}
+
+.Society_Avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  /* text-align: center; */
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  border: solid 1px #ccc;
+}
+.paddingEmp {
+  padding-bottom: 50px;
+}
+.iconplus {
+  margin-left: 20px;
+  width: 20px;
+}
+
+.Modal_title {
+  font-size: 22px;
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 800;
+  background-color: blueviolet;
+}
+.Modal {
+  width: 78%;
+}
+
+.Cardpie {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  width: 120%;
+  opacity: 0.9;
+
+  height: 73%;
+  margin-top: 120px;
+}
+.Sim_Card {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  width: 70%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 120px;
+  opacity: 0.9;
+}
+.Card {
+  font-size: 18px;
+  opacity: 0.9;
+  border-radius: 12px;
+  display: flex;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 120px;
+}
+.Cardsearch {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 120px;
+  opacity: 0.9;
+}
+
+.Container_Recherche {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.containerSpan {
+  margin-left: 50%;
+}
+
+.containerSpann {
+  margin-left: 30%;
+  margin-top: 200px;
+}
+
+.sililariity_button {
+  background-color: #ffffff;
+  font-weight: bold;
+  height: 40px;
+  font-size: 16px;
+  color: #141414;
+  font-family: 'Montserrat';
+}
+
+.sentiment_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.home_title {
+  font-size: 28px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10%;
+  margin-bottom: 4%;
+  position: relative;
+  font-family: Chivo-Italic,sans-serif;
 }

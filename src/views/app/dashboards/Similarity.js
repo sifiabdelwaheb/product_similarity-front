@@ -60,7 +60,7 @@ function DefaultDashboard(props) {
     }
   };
   return (
-    <div className={Classes.Container}>
+    <div className={Classes.Similarity_Container}>
       <Card
         xs="12"
         sm="12"
@@ -111,9 +111,9 @@ function DefaultDashboard(props) {
         </div>
       ) : redux.ProductSimilarity.loaded && clicked ? (
         <Card
-          xs="12"
-          sm="12"
-          md="15"
+          xs="8"
+          sm="8"
+          md="8"
           package={'Le produit  similaire :'}
           withImgCard={false}
           Card={Classes.Card}
@@ -122,6 +122,19 @@ function DefaultDashboard(props) {
           <p style={{ color: 'green' }}>
             {redux.ProductSimilarity.response.predict}
           </p>
+          <Button
+            onClick={() => onContactUS()}
+            variant="contained"
+            color="secondary"
+            style={{
+              backgroundColor: '#404955',
+              fontWeight: 'bold',
+              height: '40px',
+              width: '120px',
+            }}
+          >
+            View
+          </Button>
         </Card>
       ) : (
         ''

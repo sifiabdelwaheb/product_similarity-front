@@ -26,7 +26,10 @@ const editor = ({
   switch (elementType) {
     case 'Input':
       inputElement = (
-        <Label className="form-group has-float-label mb-6 text-primary">
+        <FormGroup>
+          <label className="text-primary">
+            <IntlMessages id={elementConfig.label} />
+          </label>
           <Input
             style={
               (!valid && clicked) || (clicked && error && error !== null)
@@ -45,13 +48,15 @@ const editor = ({
               <IntlMessages id={'input.invalid'} />
             </span>
           ) : null}
-          <IntlMessages id={elementConfig.label} />
-        </Label>
+        </FormGroup>
       );
       break;
     case 'Select':
       inputElement = (
         <FormGroup>
+          <label className="text-primary">
+            <IntlMessages id={elementConfig.label} />
+          </label>
           <Select
             components={{ Input: CustomSelectInput }}
             className="react-select"

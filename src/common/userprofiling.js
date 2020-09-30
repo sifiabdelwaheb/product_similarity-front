@@ -21,7 +21,7 @@ export function UserProfilingForm(value) {
         { label: 'Sentiment', id: 'Sentiment' },
         { label: 'Followers', id: 'Followers' },
         { label: 'Location', id: 'Location' },
-        { label: 'Name', id: 'Name' },
+        { label: 'Age', id: 'Age' },
         { label: 'Verified', id: 'Verified' },
         { label: 'Gender', id: 'Gender' },
       ],

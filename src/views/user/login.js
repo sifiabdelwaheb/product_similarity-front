@@ -20,7 +20,9 @@ import registerUserAction from '../../redux/package/RegisterUserRedux';
 import InputPattern from '../../common/inputPattern';
 import Hoc from '../../hoc/wrapperInputs';
 import loginAction from '../../redux/auth/authUserRedux';
-
+import Sentiment from '../app/dashboards/sentiment';
+import Particles from 'react-particles-js';
+import Similarity from './Similarity'
 const Wrapper = Hoc(InputPattern);
 function Login(props) {
   const [modal, setModal] = useState(false);
@@ -123,6 +125,7 @@ function Login(props) {
   return (
     <Fragment>
       {content}
+
       <div className={Classes.RowHome}>
         <Modal
           centered
@@ -182,46 +185,42 @@ function Login(props) {
           onClickLogin={() => onClickLogin()}
         />
 
-        <div className={`container  ${Classes.Container}`}>
-          <Card
-            xs="12"
-            sm="12"
-            md="12"
-            packageImg={packageOneImg}
-            package={'chat.contactUs'}
-            withImgCard={false}
-            Card={Classes.Card}
-            Col={Classes.Col}
-          >
-            <Wrapper
-              // onClick={() => console.log(onSendForm(contactUsform))}
-              form={contactUsform}
-              textButton="Connexion"
-              loading={redux.RegisterUser.fetching}
-              login={login}
-              clicked={clicked}
-              setClick={setClick}
-              error={redux.RegisterUser.error}
-              loaded={redux.RegisterUser.loaded}
-              setContactForm={setContactForm}
-              setValidation={setValidation}
-              // errorMessage={redux.contactUs.response}
-            />
+        <Particles
+          height="320px"
+          style={{
+            width: '100%',
+            backgroundColor: '#496E93',
+          }}
+          params={{
+            height: '100px',
+            particles: {
+              number: {
+                value: 80,
+              },
+              color: {
+                value: '#ccc',
+              },
+              shape: {
+                type: 'circle',
+                stroke: {
+                  width: 1,
+                  color: '#fff',
+                },
+              },
+            },
+          }}
+        />
 
-            <Button onClick={() => onContactUS()} color="primary">
-              <IntlMessages id="pages.send" />
-            </Button>
-
-            {redux.RegisterUser.loaded ? (
-              <p style={{ color: 'green' }}>user register successfuly</p>
-            ) : (
-              ''
-            )}
-          </Card>
+        <div className={Classes.home_title}>
+          Discover the Twitter sentiment for a product or brand.
         </div>
-        <Navbar className={Classes.FooterHome} color="light" light expand="md">
+        <div className={Classes.home_title}>TWITTER FEEL</div>
+        <div className={`${Classes.Container}`}>
+          <Similarity />
+        </div>
+        <Navbar className={Classes.FooterHome} expand="md">
           <div className="container">
-            © assistant-virtuel - 2020 Tous droits réservés.
+            © Five consulting- 2020 Tous droits réservés.
           </div>
         </Navbar>
       </div>

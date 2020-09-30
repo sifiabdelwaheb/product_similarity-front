@@ -5,6 +5,7 @@ import similaritys from './similarity';
 import moteurs from './moteur';
 import language from './language';
 import profilings from './profiling';
+import sentiments from './sentiment';
 const sagas = [
   ...auth,
   ...packages,
@@ -12,6 +13,7 @@ const sagas = [
   ...similaritys,
   ...moteurs,
   ...profilings,
+  ...sentiments,
 ];
 function* rootSaga() {
   const globalSagasForks = sagas.map((saga) => fork(saga));

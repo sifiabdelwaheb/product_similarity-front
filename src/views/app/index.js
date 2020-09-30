@@ -8,7 +8,7 @@ const Dashboards = React.lazy(() =>
   import(/* webpackChunkName: "dashboards" */ './dashboards'),
 );
 
-const Menu = React.lazy(() => import(/* webpackChunkName: "menu" */ './menu'));
+//const Menu = React.lazy(() => import(/* webpackChunkName: "menu" */ './menu'));
 
 class App extends Component {
   render() {

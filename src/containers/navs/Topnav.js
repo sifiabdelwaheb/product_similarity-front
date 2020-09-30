@@ -26,7 +26,22 @@ import { getDirection, setDirection } from '../../helpers/Utils';
 import Classes from './style.module.css';
 
 import IntlMessages from '../../helpers/IntlMessages';
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 class TopNav extends Component {
   constructor(props) {
     super(props);
@@ -87,8 +102,9 @@ class TopNav extends Component {
         <div className="d-flex align-items-center navbar-left">
           <NavLink
             to="#"
+            style={{ color: 'white' }}
             location={{}}
-            className="menu-button d-none d-md-block"
+            className="menu-button"
             onClick={(e) =>
               this.menuButtonClick(e, menuClickCount, containerClassnames)
             }
@@ -104,10 +120,10 @@ class TopNav extends Component {
             <MobileMenuIcon />
           </NavLink>
         </div>
-        <div className={'container'}>
-          <NavbarBrand style={{ maxWidth: '202px' }}>
+        <div>
+          <NavbarBrand style={{ maxWidth: '402px' }}>
             <img
-              src={require('../../assets/images/logo.JPG')}
+              src={require('../../assets/images/logo.png')}
               style={{ width: '100%' }}
             />
           </NavbarBrand>
@@ -115,47 +131,56 @@ class TopNav extends Component {
         <div style={{ width: '330px', marginRight: '1px', paddingTop: '6px' }}>
           <div
             className="name mr-1 font-weight-bold h4"
-            style={{ width: '230px', marginLeft: '120px', color: '#000' }}
+            style={{ width: '230px', marginLeft: '120px', color: '#fff' }}
           >
             {this.props.auth.response.username}
           </div>
         </div>
-        <UncontrolledDropdown>
-          <DropdownToggle
-            caret
-            color="#"
-            size="sm"
-            style={{ backgroundColor: '#da2323' }}
-          >
-            <span className="name">{this.state.lang}</span>
-          </DropdownToggle>
-          <DropdownMenu className="mt-3" right>
-            {localeOptions.map((l) => {
-              return (
-                <DropdownItem
-                  onClick={() => this.handleChangeLocale(l.id, l.direction)}
-                  key={l.id}
-                >
-                  {l.name}
-                </DropdownItem>
-              );
-            })}
-          </DropdownMenu>
-        </UncontrolledDropdown>
+        <div>
+          <UncontrolledDropdown>
+            <DropdownToggle
+              caret
+              color="#"
+              size="sm"
+              style={{
+                color: 'white',
+                marginLeft: '50px',
+                fontSize: '16px',
+              }}
+            >
+              <span className="name">{this.state.lang}</span>
+            </DropdownToggle>
+            <DropdownMenu className="mt-3" right>
+              {localeOptions.map((l) => {
+                return (
+                  <DropdownItem
+                    onClick={() => this.handleChangeLocale(l.id, l.direction)}
+                    key={l.id}
+                  >
+                    {l.name}
+                  </DropdownItem>
+                );
+              })}
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        </div>
 
         <div className="mt-3" left>
           {/* {isDarkSwitchActive && <TopnavDarkSwitch />} */}
 
-          <div className="user d-inline-block" style={{ marginLeft: '30px' }}>
+          <div
+            className="user d-inline-block"
+            style={{ marginLeft: '10px', marginTop: '-14px' }}
+          >
             <UncontrolledDropdown>
               <DropdownToggle
                 caret
                 color="#"
                 size="sm"
                 style={{
-                  backgroundColor: '#f4f4fa',
-                  width: '70px',
-                  height: '70px',
+                  backgroundColor: '#CF0E48',
+                  color: 'white',
+                  fontSize: '24px',
                 }}
               ></DropdownToggle>
 

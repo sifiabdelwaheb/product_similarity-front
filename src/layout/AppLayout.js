@@ -7,20 +7,26 @@ import TopNabHome from '../containers/navs/TopnavHome';
 import Sidebar from '../containers/navs/Sidebar';
 import { Navbar, Modal, ModalHeader, ModalBody, Button } from 'reactstrap';
 import Classes from './style.module.css';
+import img from '../assets/images/big_data_analytics.jpg';
 
 class AppLayout extends Component {
   render() {
     const { containerClassnames } = this.props;
     return (
       <div id="app-container" className={containerClassnames}>
-        <TopNav history={this.props.history} />
+        <TopNav
+          history={this.props.history}
+          style={{
+            opacity: '1',
+          }}
+        />
         <Sidebar />
-        <div style={{ marginTop: '0px' }}>
+        <main style={{ marginTop: '0px', opacity: '4' }}>
           <div className="container">{this.props.children}</div>
-        </div>
-        <Navbar className={Classes.FooterHome}  expand="md">
+        </main>
+        <Navbar className={Classes.FooterHome} expand="md">
           <div className="container">
-            © assistant-virtuel - 2020 Tous droits réservés.
+            © Five consulting- 2020 Tous droits réservés.
           </div>
         </Navbar>
       </div>

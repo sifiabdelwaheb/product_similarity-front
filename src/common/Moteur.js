@@ -10,7 +10,7 @@ function RechecheForm() {
     { value: 'orchestra', label: 'Orchestra' },
   ];
   return new Recheche({
-    product: {
+    twitters: {
       elementType: 'Input',
       elementConfig: {
         type: 'text',

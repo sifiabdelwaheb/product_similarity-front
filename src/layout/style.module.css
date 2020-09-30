@@ -2,18 +2,15 @@
 }
 .FooterHome {
   width: 100%;
-  margin-top: 17%;
-  background-color: #f4f4fa;
+  margin-top: 19%;
+  background-color: #cf0e48;
+  color: white;
+  font-weight:900;
+  font-size: 16px;
 }
 .Container {
-  height: calc(100% - 80px);
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding-top: 125px;
-  padding-bottom: 30px;
-  background-color: brown;
+
+  background-image: url('../assets/images/predictive-analytics.jpg');
 }
 .Modal {
   box-shadow: none;

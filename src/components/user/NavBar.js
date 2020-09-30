@@ -41,7 +41,7 @@ function NavBar(props) {
     }, 500);
   }
 
-  const responseFacebook = response => {
+  const responseFacebook = (response) => {
     console.log('response ', response);
     if (response.status !== 'unknown') {
       dispatch(
@@ -63,23 +63,30 @@ function NavBar(props) {
   };
   return (
     <>
-      <Navbar color="light" light expand="md">
+      <Navbar className={Classes.TopNav} expand="md">
         <div className={'container'}>
-          <NavbarBrand href="/">
+          <NavbarBrand style={{ maxWidth: '402px' }}>
             <img
-              src={require('../../assets/images/logo.JPG')}
-              className={Classes.Logo}
+              src={require('../../assets/images/logo.png')}
+              style={{ width: '100%' }}
             />
           </NavbarBrand>
-          <NavbarToggler />
           <Collapse navbar>
             <Nav className="mr-auto" navbar>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle
+                  nav
+                  caret
+                  style={{
+                    color: 'white',
+                    marginLeft: '50px',
+                    fontSize: '16px',
+                  }}
+                >
                   {lang}
                 </DropdownToggle>
                 <DropdownMenu className="mt-3" left>
-                  {localeOptions.map(l => {
+                  {localeOptions.map((l) => {
                     return (
                       <DropdownItem
                         onClick={() => handleChangeLocale(l.id, l.direction)}
@@ -93,19 +100,13 @@ function NavBar(props) {
               </UncontrolledDropdown>
             </Nav>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-              <FacebookLogin
-                autoLoad={false}
-                fields="name,email,picture"
-                callback={responseFacebook}
-                cssClass={`btn-shadow ${Classes.btnFacebook}`}
-                textButton="Sign In with Facebook"
-                icon="fa fa-facebook"
-              />
-            </div>
-
             <Button
-              color="primary"
+              style={{
+                backgroundColor: 'white',
+                marginLeft: '50px',
+                fontSize: '16px',
+                color: '#000',
+              }}
               className={`btn-shadow btn-multiple-state ${
                 props.loading ? 'show-spinner' : ''
               }`}
@@ -118,9 +119,7 @@ function NavBar(props) {
                 <span className="bounce3" />
               </span>
 
-              <span className="label">
-                <IntlMessages id="user.login-button" />
-              </span>
+              <span className="label">ADMIN</span>
             </Button>
           </Collapse>
         </div>

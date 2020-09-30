@@ -8,6 +8,9 @@ const Register = React.lazy(() =>
   import(/* webpackChunkName: "user-register" */ './register'),
 );
 
+const Similarity = React.lazy(() =>
+  import(/* webpackChunkName: "user-register" */ './Similarity'),
+);
 const User = ({ match }) => {
   return (
     <>
@@ -21,6 +24,10 @@ const User = ({ match }) => {
           <Route
             path={`${match.url}/register`}
             render={(props) => <Register {...props} />}
+          />
+          <Route
+            path={`${match.url}/similarity`}
+            render={(props) => <Similarity {...props} />}
           />
 
           <Redirect to="/error" />
