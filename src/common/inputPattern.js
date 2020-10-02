@@ -27,7 +27,7 @@ const editor = ({
     case 'Input':
       inputElement = (
         <FormGroup>
-          <label className="text-primary">
+          <label className="text-primary1">
             <IntlMessages id={elementConfig.label} />
           </label>
           <Input
@@ -54,7 +54,7 @@ const editor = ({
     case 'Select':
       inputElement = (
         <FormGroup>
-          <label className="text-primary">
+          <label className="text-primary1">
             <IntlMessages id={elementConfig.label} />
           </label>
           <Select

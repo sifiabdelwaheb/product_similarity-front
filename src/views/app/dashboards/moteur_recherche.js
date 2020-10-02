@@ -88,7 +88,7 @@ function MoteurRecherche(props) {
             backgroundColor: '#da2323',
             fontWeight: 'bold',
             height: '40px',
-            color:'white'
+            color: 'white',
           }}
         >
           collecter
@@ -108,6 +108,8 @@ function MoteurRecherche(props) {
           <div className={Classes.containerSpan}>
             <p style={{ color: 'green', fontSize: '22px' }}>Terminer</p>
           </div>
+        ) : redux.Moteur.error && clicked ? (
+          'error to load data'
         ) : (
           ''
         )}

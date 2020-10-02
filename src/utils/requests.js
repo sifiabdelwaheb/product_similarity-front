@@ -11,7 +11,7 @@ const instance = (method, baseURL = BaseURL, url, data = null, headers = null) =
 			method,
 			baseURL,
 			url,
-			timeout: 30000,
+			timeout: 30000000,
 			headers: headers,
 			crossDomain: true
 		});

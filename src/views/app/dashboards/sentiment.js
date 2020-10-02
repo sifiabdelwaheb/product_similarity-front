@@ -9,6 +9,7 @@ import { Redirect } from 'react-router-dom';
 import loginForms from '../../../common/authUser';
 import SimilarityForm from '../../../common/Similarity';
 import RechercheForm from '../../../common/Moteur';
+import SentimentForm from '../../../common/sentiment'
 import Classes from './style.module.css';
 import IntlMessages from '../../../helpers/IntlMessages';
 import { getParameterByName, randomString } from '../../../helpers/Utils';
@@ -40,7 +41,7 @@ function Sentiment(props) {
   const [clicked, setClick] = useState(false);
   const [isValid, setValidation] = useState(false);
   const [forms, setForm] = useState(loginForms());
-  const [contactUsform, setContactForm] = useState(RechercheForm().recheche);
+  const [contactUsform, setContactForm] = useState(SentimentForm().sentiment);
   const [datac, setDatac] = useState([]);
   const [data, setData] = useState([]);
   const [chartUsform, setChartForm] = useState(UserProfilingForm);

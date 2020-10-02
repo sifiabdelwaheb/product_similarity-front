@@ -105,13 +105,14 @@ function DefaultDashboard(props) {
 
   const onContactUS = (twitter) => {
     setClick(true);
-    window.location.reload(true);
+    // window.location.reload(true);
 
     if (isValid) {
       dispatch(
         sentimentAction.SentimentRequest({
           twitters: twitter,
         }),
+        profilingAction.allProfilingRequest(),
       );
     }
   };
