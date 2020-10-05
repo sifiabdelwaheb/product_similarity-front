@@ -29,16 +29,20 @@ import similarityAction from '../../redux/similarity/ProductSimilarity';
 import InputPattern from '../../common/inputPattern';
 import Hoc from '../../hoc/wrapperInputs';
 import { Spinner } from 'reactstrap';
+import SentimentForm from '../../common/sentiment';
 
 const Wrapper = Hoc(InputPattern);
 function DefaultDashboard(props) {
   const [login, setLogin] = useState(false);
   const dispatch = useDispatch();
   const [loginErr, setLoginErr] = useState(false);
+  const [clicked1, setClick1] = useState(false);
+  const [clicked2, setClick2] = useState(false);
+
   const [clicked, setClick] = useState(false);
   const [isValid, setValidation] = useState(false);
   const [forms, setForm] = useState(loginForms());
-  const [contactUsform, setContactForm] = useState(RechercheForm().recheche);
+
   const [datac, setDatac] = useState([]);
   const [data, setData] = useState([]);
   const [chartUsform, setChartForm] = useState(UserProfilingForm);
@@ -47,6 +51,9 @@ function DefaultDashboard(props) {
 
   const [similarityUsform, setSimilarityForm] = useState(
     SimilarityForm().similarity,
+  );
+  const [sentimentUsform, setSentimentForm] = useState(
+    SentimentForm().sentiment,
   );
 
   const redux = useSelector((state) => state);
@@ -103,32 +110,14 @@ function DefaultDashboard(props) {
 
   const showbutton = false;
 
-  const onContactUS = (twitter) => {
-    setClick(true);
-    // window.location.reload(true);
-
-    if (isValid) {
-      dispatch(
-        sentimentAction.SentimentRequest({
-          twitters: twitter,
-        }),
-        profilingAction.allProfilingRequest(),
-      );
-    }
-  };
   const onContactUS1 = () => {
-    setClick(true);
+    setClick1(true);
 
     if (isValid) {
       dispatch(ChartAction.ChartRequest(onSendForm(chartUsform)));
     }
   };
-  useEffect(() => {
-    dispatch(profilingAction.allProfilingRequest());
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   useEffect(() => {
     dispatch(ChartAction.ChartRequest(onSendForm(chartUsform)));
 
@@ -143,13 +132,7 @@ function DefaultDashboard(props) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [redux.chart.loaded, redux.chart.response]);
-  useEffect(() => {
-    if (redux.profiling.loaded) {
-      setData(redux.profiling.response.data.asMutable({ deep: true }));
-    }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [redux.profiling.loaded, redux.profiling.response]);
   const generateData = (value, length = 15) =>
     d3.range(length).map((item, index) => ({
       date: index,
@@ -177,12 +160,34 @@ function DefaultDashboard(props) {
   }
 
   const onClickSimilarity = () => {
-    setClick(true);
+    setClick1(true);
 
     if (isValid) {
       dispatch(
         similarityAction.SimilarityRequest(onSendForm(similarityUsform)),
       );
+    }
+  };
+  const onSentimentClick = () => {
+    setClick2(true);
+    if (redux.sentiment.loaded) {
+      setData(redux.sentiment.response.data.asMutable({ deep: true }));
+    }
+  };
+  useEffect(() => {
+    dispatch(profilingAction.allProfilingRequest());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const onContactUS = (twitter) => {
+    setClick(true);
+    // window.location.reload(true);
+
+    if (isValid) {
+      dispatch(sentimentAction.SentimentRequest(onSendForm(sentimentUsform)));
+      //setData(redux.profiling.response.data.asMutable({ deep: true }));
     }
   };
   return (
@@ -201,9 +206,7 @@ function DefaultDashboard(props) {
             // onClick={() => console.log(onSendForm(contactUsform))}
             form={similarityUsform}
             textButton="Connexion"
-            loading={redux.RegisterUser.fetching}
-            login={login}
-            setClick={setClick}
+            setClick={setClick1}
             error={redux.RegisterUser.error}
             loaded={redux.RegisterUser.loaded}
             setSimilarityForm={setSimilarityForm}
@@ -225,7 +228,9 @@ function DefaultDashboard(props) {
           </Button>
         </Card>
 
-        {!redux.ProductSimilarity.loaded && clicked ? (
+        {!redux.ProductSimilarity.loaded &&
+        clicked1 &&
+        !redux.ProductSimilarity.error ? (
           <div className={Classes.containerSpann}>
             <CircularProgress
               style={{
@@ -248,28 +253,73 @@ function DefaultDashboard(props) {
             <p style={{ color: 'green' }}>
               {redux.ProductSimilarity.response.predict}
             </p>
+            <Wrapper
+              // onClick={() => console.log(onSendForm(contactUsform))}
+              form={sentimentUsform}
+              textButton="Connexion"
+              loading={redux.RegisterUser.fetching}
+              login={login}
+              clicked={clicked}
+              setClick={setClick}
+              error={redux.RegisterUser.error}
+              loaded={redux.RegisterUser.loaded}
+              setSentimentForm={setSentimentForm}
+              setValidation={setValidation}
+              // errorMessage={redux.contactUs.response}
+            />
             <Button
-              onClick={() =>
-                onContactUS(redux.ProductSimilarity.response.predict)
-              }
+              onClick={() => onContactUS()}
               variant="contained"
-              color="secondary"
               style={{
-                backgroundColor: '#404955',
+                backgroundColor: '#da2323',
                 fontWeight: 'bold',
                 height: '40px',
-                width: '120px',
+                color: 'white',
               }}
             >
               Discover
             </Button>
+            {redux.sentiment.loaded ? (
+              <Button
+                onClick={() => onSentimentClick()}
+                variant="contained"
+                style={{
+                  backgroundColor: '#da2323',
+                  fontWeight: 'bold',
+                  height: '40px',
+                  width: '120px',
+                  color: 'white',
+                  marginLeft: '70px',
+                }}
+              >
+                View
+              </Button>
+            ) : (
+              ''
+            )}
+          </Card>
+        ) : redux.ProductSimilarity.error &&
+          !redux.ProductSimilarity.loaded &&
+          clicked1 ? (
+          <Card
+            xs="8"
+            sm="8"
+            md="8"
+            package={'Le produit  similaire :'}
+            withImgCard={false}
+            Card={Classes.Card}
+            Col={Classes.Col}
+          >
+            <p style={{ color: 'red' }}>
+              on nous trouve pas un produit similaire pour ces caractéristique
+            </p>
           </Card>
         ) : (
           ''
         )}
       </div>
       <div className={Classes.profiling}>
-        {!redux.sentiment.loaded && clicked ? (
+        {!redux.sentiment.loaded && clicked && !redux.sentiment.error ? (
           <div className={Classes.containerSpan}>
             <CircularProgress
               style={{
@@ -279,7 +329,7 @@ function DefaultDashboard(props) {
               }}
             />
           </div>
-        ) : redux.sentiment.loaded ? (
+        ) : redux.sentiment.loaded && clicked2 && clicked? (
           <div className={Classes.sentiment_container}>
             <div style={{ marginTop: '120px' }}>
               <ReactTableAdvancedCard
@@ -303,8 +353,8 @@ function DefaultDashboard(props) {
                   textButton="Connexion"
                   //loading={redux.RegisterUser.fetching}
                   //login={login}
-                  clicked={clicked}
-                  setClick={setClick}
+                  clicked={clicked1}
+                  setClick={setClick1}
                   error={redux.RegisterUser.error}
                   loaded={redux.RegisterUser.loaded}
                   setContactForm={setChartForm}
@@ -349,6 +399,8 @@ function DefaultDashboard(props) {
               </Card>
             </div>
           </div>
+        ) : redux.sentiment.error && clicked ? (
+          'error of sentiment'
         ) : (
           ''
         )}

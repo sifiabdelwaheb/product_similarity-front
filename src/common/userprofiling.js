@@ -8,14 +8,15 @@ export function UserProfilingForm(value) {
       elementType: 'Select',
       elementConfig: {
         type: 'text',
-        label: 'Select Element',
+        label: ' ',
+        name: 'Element',
         // prefix: <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
       },
-      value: 'Sentiment',
+      value: '',
       validation: {
         required: true,
       },
-      valid: '',
+      valid: false,
       touched: false,
       options: [
         { label: 'Sentiment', id: 'Sentiment' },

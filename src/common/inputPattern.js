@@ -27,7 +27,7 @@ const editor = ({
     case 'Input':
       inputElement = (
         <FormGroup>
-          <label className="text-primary1">
+          <label className="form-group has-float-label mb-4">
             <IntlMessages id={elementConfig.label} />
           </label>
           <Input
@@ -54,17 +54,19 @@ const editor = ({
     case 'Select':
       inputElement = (
         <FormGroup>
-          <label className="text-primary1">
+          <label className="form-group has-float-label mb-4">
             <IntlMessages id={elementConfig.label} />
           </label>
           <Select
             components={{ Input: CustomSelectInput }}
-            className="react-select"
+            className={
+              !valid && clicked ? 'react-select__border__red' : 'react-select'
+            }
+            classNamePrefix="react-select"
             name="form-field-name"
             options={options}
             onChange={(e) => onChange(e)}
             value={value}
-            style={{ width: '70%' }}
             // defaultInputValue={value}
           />
           {!valid && clicked && <p className="text-danger" />}

@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 import loginForms from '../../../common/authUser';
 import SimilarityForm from '../../../common/Similarity';
 import RechercheForm from '../../../common/Moteur';
-import SentimentForm from '../../../common/sentiment'
+import SentimentForm from '../../../common/sentiment';
 import Classes from './style.module.css';
 import IntlMessages from '../../../helpers/IntlMessages';
 import { getParameterByName, randomString } from '../../../helpers/Utils';
@@ -53,6 +53,7 @@ function Sentiment(props) {
     {
       Header: 'Sentiment',
       accessor: 'Sentiment',
+      Cell: (props) => <p className="text-muted">{props.value}</p>,
     },
     {
       Header: 'Followers',
@@ -106,6 +107,7 @@ function Sentiment(props) {
     setClick(true);
     if (isValid) {
       dispatch(sentimentAction.SentimentRequest(onSendForm(contactUsform)));
+      setData(redux.sentiment.response.data.asMutable({ deep: true }));
     }
   };
   const onContactUS1 = () => {
@@ -115,13 +117,7 @@ function Sentiment(props) {
     }
   };
   useEffect(() => {
-    dispatch(profilingAction.allProfilingRequest());
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
-    dispatch(ChartAction.ChartRequest(onSendForm(chartUsform)));
+    setData(redux.profiling.response.data.asMutable({ deep: true }));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -134,13 +130,7 @@ function Sentiment(props) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [redux.chart.loaded, redux.chart.response]);
-  useEffect(() => {
-    if (redux.profiling.loaded) {
-      setData(redux.profiling.response.data.asMutable({ deep: true }));
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [redux.profiling.loaded, redux.profiling.response]);
+  
   const generateData = (value, length = 15) =>
     d3.range(length).map((item, index) => ({
       date: index,

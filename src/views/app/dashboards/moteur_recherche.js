@@ -94,7 +94,7 @@ function MoteurRecherche(props) {
           collecter
         </Button>
 
-        {!redux.Moteur.loaded && clicked ? (
+        {!redux.Moteur.loaded && clicked && !redux.Moteur.error ? (
           <div className={Classes.containerSpan}>
             <CircularProgress
               style={{
@@ -109,7 +109,9 @@ function MoteurRecherche(props) {
             <p style={{ color: 'green', fontSize: '22px' }}>Terminer</p>
           </div>
         ) : redux.Moteur.error && clicked ? (
-          'error to load data'
+          <div className={Classes.containerSpan}>
+            <p style={{ color: 'red', fontSize: '22px' }}>error to load data</p>
+          </div>
         ) : (
           ''
         )}

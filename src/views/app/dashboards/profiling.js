@@ -75,7 +75,6 @@ function Profiling(props) {
     {
       Header: 'Location',
       accessor: 'Location',
-      Cell: (props) => <p className="text-muted">{props.value}</p>,
     },
     {
       Header: 'Name',
@@ -163,8 +162,8 @@ function Profiling(props) {
         <Card
           xs="4"
           sm="4"
-          md="4"
-          package={' '}
+          md="6"
+          package={'Select column '}
           withImgCard={false}
           Card={Classes.Card}
           Col={Classes.Col}

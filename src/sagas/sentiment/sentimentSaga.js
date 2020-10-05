@@ -5,7 +5,7 @@ import axiosRequest, { setAuthorizationBearer } from '../../utils/requests';
 import SentimentActions, {
   SentimentTypes,
 } from '../../redux/sentiment/sentimentRedux';
-
+import allProfilingActions from '../../redux/profiling/profilingRedux';
 function* SentimenttwitterRequest({ data }) {
   try {
     let response = yield call(

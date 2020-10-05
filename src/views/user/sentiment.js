@@ -104,6 +104,8 @@ function Sentiment(props) {
 
     if (isValid) {
       dispatch(sentimentAction.SentimentRequest(onSendForm(contactUsform)));
+      setData(redux.sentiment.response.data.asMutable({ deep: true }));
+
     }
   };
   const onContactUS1 = () => {
@@ -112,12 +114,7 @@ function Sentiment(props) {
       dispatch(ChartAction.ChartRequest(onSendForm(chartUsform)));
     }
   };
-  useEffect(() => {
-    dispatch(profilingAction.allProfilingRequest());
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+ 
   useEffect(() => {
     dispatch(ChartAction.ChartRequest(onSendForm(chartUsform)));
 
@@ -132,13 +129,7 @@ function Sentiment(props) {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [redux.chart.loaded, redux.chart.response]);
-  useEffect(() => {
-    if (redux.profiling.loaded) {
-      setData(redux.profiling.response.data.asMutable({ deep: true }));
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [redux.profiling.loaded, redux.profiling.response]);
+ 
   const generateData = (value, length = 15) =>
     d3.range(length).map((item, index) => ({
       date: index,

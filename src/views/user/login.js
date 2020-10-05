@@ -11,7 +11,6 @@ import contactUsForms from '../../common/contactUs';
 import Classes from './style.module.css';
 import IntlMessages from '../../helpers/IntlMessages';
 import { getParameterByName, randomString } from '../../helpers/Utils';
-
 import { injectIntl } from 'react-intl';
 import Card from '../../components/user/Card';
 import packageOneImg from '../../assets/images/package-one.jpeg';
@@ -22,7 +21,8 @@ import Hoc from '../../hoc/wrapperInputs';
 import loginAction from '../../redux/auth/authUserRedux';
 import Sentiment from '../app/dashboards/sentiment';
 import Particles from 'react-particles-js';
-import Similarity from './Similarity'
+import Similarity from './Similarity';
+
 const Wrapper = Hoc(InputPattern);
 function Login(props) {
   const [modal, setModal] = useState(false);
@@ -218,6 +218,7 @@ function Login(props) {
         <div className={`${Classes.Container}`}>
           <Similarity />
         </div>
+
         <Navbar className={Classes.FooterHome} expand="md">
           <div className="container">
             © Five consulting- 2020 Tous droits réservés.

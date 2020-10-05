@@ -11,6 +11,7 @@ import {
 import { connect, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { MobileMenuIcon, MenuIcon } from '../../components/svg';
+import { Redirect } from 'react-router-dom';
 
 import logoutAction from '../../redux/auth/authUserRedux';
 import {
@@ -70,10 +71,11 @@ class TopNav extends Component {
 
   handleLogout = async () => {
     await window.location.reload();
-    await this.props.logoutHandler();
-    await localStorage.removeItem('persist:root');
-    //await localStorage.removeItem('__theme_color');
+		await this.props.logoutHandler();
+		await localStorage.removeItem('persist:root');
+		await localStorage.removeItem('__theme_color');
   };
+
   menuButtonClick = (e, menuClickCount, containerClassnames) => {
     e.preventDefault();
 

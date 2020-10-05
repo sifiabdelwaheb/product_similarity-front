@@ -99,7 +99,9 @@ function DefaultDashboard(props) {
         </Button>
       </Card>
 
-      {!redux.ProductSimilarity.loaded && clicked ? (
+      {!redux.ProductSimilarity.loaded &&
+      clicked &&
+      !redux.ProductSimilarity.error ? (
         <div className={Classes.containerSpann}>
           <CircularProgress
             style={{
@@ -135,6 +137,22 @@ function DefaultDashboard(props) {
           >
             View
           </Button>
+        </Card>
+      ) : redux.ProductSimilarity.error &&
+        !redux.ProductSimilarity.loaded &&
+        clicked ? (
+        <Card
+          xs="8"
+          sm="8"
+          md="8"
+          package={'Le produit  similaire :'}
+          withImgCard={false}
+          Card={Classes.Card}
+          Col={Classes.Col}
+        >
+          <p style={{ color: 'red' }}>
+            on nous trouve pas un produit similaire pour ces caractéristique
+          </p>
         </Card>
       ) : (
         ''
