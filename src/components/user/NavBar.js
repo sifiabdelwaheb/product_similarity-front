@@ -99,6 +99,27 @@ function NavBar(props) {
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
+            <Button
+              style={{
+                backgroundColor: 'white',
+                marginLeft: '50px',
+                fontSize: '16px',
+                color: '#000',
+              }}
+              className={`btn-shadow btn-multiple-state ${
+                props.loading ? 'show-spinner' : ''
+              }`}
+              size="lg"
+              onClick={props.onClickRegister}
+            >
+              <span className="spinner d-inline-block">
+                <span className="bounce1" />
+                <span className="bounce2" />
+                <span className="bounce3" />
+              </span>
+
+              <span className="label">Register</span>
+            </Button>
 
             <Button
               style={{
@@ -131,11 +152,13 @@ function NavBar(props) {
 NavBar.propTypes = {
   loading: PropTypes.bool,
   onClickLogin: PropTypes.func.isRequired,
+  onClickRegister: PropTypes.func.isRequired,
   left: PropTypes.string,
 };
 NavBar.defaultProps = {
   loading: null,
   onClickLogin: () => {},
+  onClickRegister: () => {},
   left: '',
 };
 export default NavBar;

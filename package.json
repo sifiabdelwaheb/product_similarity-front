@@ -1,7 +1,7 @@
 {
-  "name": "Five consulting",
+  "name": "mobilar",
   "version": "0.0.1",
-  "description": "Five consulting",
+  "description": "Mobilar",
   "private": true,
   "dependencies": {
     "@glidejs/glide": "^3.3.0",

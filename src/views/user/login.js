@@ -24,7 +24,9 @@ import Similarity from './Similarity';
 const Wrapper = Hoc(InputPattern);
 function Login(props) {
   const [modal, setModal] = useState(false);
+  const [modal1, setModal1] = useState(false);
   const [login, setLogin] = useState(false);
+  const [register, setregister] = useState(false);
   const dispatch = useDispatch();
   const [loginErr, setLoginErr] = useState(false);
   const [clicked, setClick] = useState(false);
@@ -59,14 +61,15 @@ function Login(props) {
   }, [dispatch, redux.auth.response.language, redux.auth.token]);
 
   const toggle = () => setModal(!modal);
+  const toggle1 = () => setModal1(!modal1);
 
   function onClickLogin() {
     setLogin(true);
     setModal(true);
   }
   function onClickRegister() {
-    setLogin(false);
-    setModal(true);
+    setregister(true);
+    setModal1(true);
   }
   const validateEmail = (value) => {
     let error;
@@ -176,6 +179,39 @@ function Login(props) {
                 </span>
               </Button>
             </Wrapper>
+          </ModalBody>
+        </Modal>
+        <Modal
+          centered
+          isOpen={modal1}
+          toggle={toggle1}
+          className={Classes.Modalregister}
+        >
+          <ModalHeader toggle={toggle1}> INSCRIPTION</ModalHeader>
+          <ModalBody>
+            <Wrapper
+              // onClick={() => console.log(onSendForm(contactUsform))}
+              form={contactUsform}
+              textButton="Connexion"
+              loading={redux.RegisterUser.fetching}
+              login={login}
+              clicked={clicked}
+              setClick={setClick}
+              error={redux.RegisterUser.error}
+              loaded={redux.RegisterUser.loaded}
+              setContactForm={setContactForm}
+              setValidation={setValidation}
+              // errorMessage={redux.contactUs.response}
+            />
+            <Button onClick={() => onContactUS()} color="primary">
+              <IntlMessages id="pages.send" />
+            </Button>
+
+            {redux.RegisterUser.loaded && clicked ? (
+              <p style={{ color: 'green' }}>user register successfuly</p>
+            ) : (
+              ''
+            )}
           </ModalBody>
         </Modal>
         <NavBar
