@@ -191,7 +191,7 @@ module.exports = {
   'dashboards.pack': 'Pack',
   'dashboards.employee': 'Similarities',
   'dashboards.incapacity': 'Incapacity',
-  'dashboards.usersanalysis':'Users Analysis',
+  'dashboards.usersanalysis': 'Users Analysis',
 
   'dashboards.on-approval-process': 'On approval process',
   'dashboards.alerts': 'Alerts',
@@ -250,7 +250,7 @@ module.exports = {
   'pages.questions-title': 'Questions',
   'pages.similar-projects': 'Similar Projects',
   'pages.send': 'Envoyer',
-  'pages.predict':'Prediction',
+  'pages.predict': 'Prediction',
   'pages.addComment': 'Add a comment',
   'pages.location': 'Location',
   'pages.responsibilities': 'Responsibilities',
@@ -588,6 +588,7 @@ module.exports = {
   'modal.size': 'Size',
   'modal.launch-large-modal': 'Launch Large Modal',
   'modal.launch-small-modal': 'Launch Small Modal',
+  'dashboards.moteur': 'Moteur Recherche',
 
   /* 07.16.Navigation */
   'nav.basic': 'Nav Basic',
@@ -656,148 +657,7 @@ module.exports = {
   'wizard.prev': 'Back',
   'wizard.registered': 'Your registration completed successfully!',
   'wizard.async': 'Async save for 3 seconds!',
-  // Page home packages\
-  // Page home packages\
-  'Home.packageOne': 'Forfait un',
-  'Home.packageTwo': 'Forfait deux',
-  'Dashbord.packages': 'Paquets',
-  'Pack.name': 'Nom',
-  'Pack.description': 'Description',
-  'Pack.price': 'Prix',
-  'Pack.edit': 'Éditer',
-  'Pack.delete': 'Supprimer',
-  'Pack.beginDate': 'Date de début',
-  'Pack.endDate': 'Date de fin',
-  'Pack._id': 'id',
-  'Pack.showInHomePage': "Afficher dans la page d'accueil",
-  'pack.showInHomePage': "Afficher dans la page d'accueil",
-  'Pack.image': 'Image',
-  'pack.true': 'Oui',
-  'pack.false': 'Non',
 
-  //page formulaire pack
-  'pack.price': 'Prix',
-  'pack.beginDate': 'Date de début',
-  'pack.endDate': 'Date de fin',
-  'pack.description': 'Description',
-  'pack.name': 'Nom',
-  //Page home Users
-  'users.reseller': 'Revendeur',
-  'users.consumer': 'Consommateur',
-  'users.details': 'Détails',
-  'users.logo': 'Logo',
-  'users.theme': 'Theme',
-  'users.language': 'Langue',
-  'users.name': 'Nom',
-  'users.username': "Nom d'utilisateur",
-  'users.email': 'Email',
-  'users.edit': 'Éditer',
+  'topnav.signout':'Signout'
 
-  'users.role': 'rôle',
-  'users.Password': 'Mot de passe',
-  'users.confirmPassword': 'Confirmez le mot de passe',
-  //page user formulaire
-  'user.theme': 'Thème',
-  'user.language': 'Langue',
-  'user.name': 'Nom',
-  'user.role': 'Rôle',
-  Password: 'Mot de passe',
-  'E-mail': 'Email',
-  'user.confirmPassword': 'Confirmez le mot de passe',
-
-  //Page home employee
-  'employee.email': 'Email',
-  'employee.phone': 'Téléphone',
-  'employee.firstName': 'Prénom',
-  'employee.lastName': 'Nom de famille',
-  'employee.code': 'Code',
-  'employee.priorNotice': 'Avis préalable',
-  'employee.beginDateRestitution': 'Date de début de la restitution',
-  'employee.beginDateContract': 'Contrat de date de début',
-  'employee.nbDaysLeaveRestitution': 'Nb jours de congé de restitution',
-  'employee.status': 'Statut',
-  'employee.edit': 'Éditer',
-  'employee.delete': 'Supprimer',
-  'employee.active': 'Actif',
-  'employee.notactive': 'Pas actif',
-  'email:': 'Email',
-  //page employee formulaire
-  'user.phone': 'Téléphone',
-  'user.firstName': 'Prénom',
-  'user.lastName': 'Nom de famille',
-  'user.code': 'Code',
-  'user.priorNotice': 'Avis préalable',
-  'user.beginDateRestitution': 'Date de début de la restitution',
-  'user.beginDateContract': 'Contrat de date de début',
-  'user.nbDaysLeaveRestitution': 'Nb jours de congé de restitution',
-  'user.status': 'Statut',
-  'employee.preview': 'Aperçu',
-  //Page home incapacity
-  'incapacity.code': 'Code',
-  'incapacity.name': 'Nom',
-  'incapacity.description': 'Description',
-  'incapacity.edit': 'Éditer',
-  'incapacity.delete': 'Supprimer',
-  'incapacity.preview': 'Aperçu',
-  //page incapacity formulaire
-  'user.description': 'Description',
-  //page home login
-  'Contactus.message': 'message',
-  'Contactus.email': 'Email',
-  'Contactus.name': 'Nom',
-
-  //component inputPattern
-  'input.invalid': 'Obligatoire',
-
-  //component Topanv
-  'topnav.signout': 'Déconnexion',
-  'topnav.account': 'Compte',
-  'topnav.features': 'traits',
-  'topnav.history': 'Histoire',
-  'topnav.support': 'Soutien',
-
-  //modal title
-  'modaltitle.pack': 'Ajouter un nouveau pack',
-  'modaltitle.users': 'Ajouter une nouvelle entreprise',
-  'modaltitle.employee': 'Ajouter un nouvel employé',
-  'modaltitle.incapacity': 'Ajouter une nouvelle incapacité',
-  'modaledit.pack': 'Modifier un nouveau pack',
-  'modaledit.users': 'Modifier une nouvelle entreprise',
-  'modaledit.employee': 'Modifier un nouvel employé',
-  'modaledit.incapacity': 'Modifier une nouvelle incapacité',
-  'modalpreview.pack': 'Aperçu du nouveau pack',
-  'modalpreview.incapacity': 'Aperçu de la nouvelle incapacité',
-  'modalpreview.employee': 'Aperçu du nouvel employé',
-  'modalpreview.users': 'Aperçu nouvelle entreprise',
-
-  //form employeeincapacity
-  'user.IncapacityName': 'Nom d incapacité',
-  'user.Details': 'Détails',
-  type: 'Type',
-  beginDate: 'Date de début',
-  endDate: 'Date de fin',
-  Relapes: 'Rechute',
-  Edit: 'Éditer',
-  Delete: 'Supprimer',
-  Preview: 'Aperçu',
-  Incapacitys: 'Incapacité',
-  beginDateRestitution: 'Date de début de la restitution',
-
-  //employee previewmodal
-  'previewmodal.code': 'Code',
-  'previewmodal.name': 'Nom',
-
-  'previewmodal.beginDate': 'Date de début',
-  'previewmodal.endDate': 'Date de fin',
-  'previewmodal.details': 'Détails',
-  'previewmodal.addrelapse': 'Ajouter une nouvelle rechute',
-  'previewmodal.relapse': 'Rechute',
-
-  //modal message delete
-  'deletemessage': 'Êtes-vous sûr de vouloir supprimer!',
-  'modal.cancel': 'Annuler',
-  'cancel': 'Annuler',
-  'submit':'envoyée',
-  'global.informations': 'informations',
-  'global.results': 'résultats',
 };

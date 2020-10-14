@@ -20,7 +20,6 @@ import profilingAction from '../../../redux/profiling/profilingRedux';
 
 import { injectIntl } from 'react-intl';
 import Card from '../../../components/user/Card';
-import packageTwoImg from '../../../assets/images/package-two.jpeg';
 //import registerUserAction from '../../../redux/package/RegisterUserRedux';
 import mouteurAction from '../../../redux/moteur/MoteruRedux';
 import sentimentAction from '../../../redux/sentiment/sentimentRedux';
@@ -53,6 +52,11 @@ function Sentiment(props) {
     {
       Header: 'Sentiment',
       accessor: 'Sentiment',
+      Cell: (props) => <p className="text-muted">{props.value}</p>,
+    },
+    {
+      Header: 'Tweet',
+      accessor: 'Tweet',
       Cell: (props) => <p className="text-muted">{props.value}</p>,
     },
     {

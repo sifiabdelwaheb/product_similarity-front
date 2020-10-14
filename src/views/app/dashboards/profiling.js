@@ -68,6 +68,11 @@ function Profiling(props) {
       accessor: 'Sentiment',
     },
     {
+      Header: 'Tweet',
+      accessor: 'Tweet',
+      Cell: (props) => <p className="text-muted">{props.value}</p>,
+    },
+    {
       Header: 'Followers',
       accessor: 'Followers',
       Cell: (props) => <p className="text-muted">{props.value}</p>,

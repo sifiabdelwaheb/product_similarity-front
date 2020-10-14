@@ -13,8 +13,6 @@ import IntlMessages from '../../helpers/IntlMessages';
 import { getParameterByName, randomString } from '../../helpers/Utils';
 import { injectIntl } from 'react-intl';
 import Card from '../../components/user/Card';
-import packageOneImg from '../../assets/images/package-one.jpeg';
-// import packageTwoImg from "../../assets/images/package-two.jpeg";
 import registerUserAction from '../../redux/package/RegisterUserRedux';
 import InputPattern from '../../common/inputPattern';
 import Hoc from '../../hoc/wrapperInputs';

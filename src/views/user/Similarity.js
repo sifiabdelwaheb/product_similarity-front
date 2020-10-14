@@ -63,6 +63,11 @@ function DefaultDashboard(props) {
       accessor: 'Sentiment',
     },
     {
+      Header: 'Tweet',
+      accessor: 'Tweet',
+      Cell: (props) => <p className="text-muted">{props.value}</p>,
+    },
+    {
       Header: 'Followers',
       accessor: 'Followers',
       Cell: (props) => <p className="text-muted">{props.value}</p>,
@@ -206,7 +211,10 @@ function DefaultDashboard(props) {
             // onClick={() => console.log(onSendForm(contactUsform))}
             form={similarityUsform}
             textButton="Connexion"
-            setClick={setClick1}
+            loading={redux.RegisterUser.fetching}
+            login={login}
+            clicked={clicked}
+            setClick={setClick}
             error={redux.RegisterUser.error}
             loaded={redux.RegisterUser.loaded}
             setSimilarityForm={setSimilarityForm}
@@ -240,7 +248,7 @@ function DefaultDashboard(props) {
               }}
             />
           </div>
-        ) : redux.ProductSimilarity.loaded ? (
+        ) : redux.ProductSimilarity.loaded && clicked1 ? (
           <Card
             xs="8"
             sm="8"
@@ -258,7 +266,6 @@ function DefaultDashboard(props) {
               form={sentimentUsform}
               textButton="Connexion"
               loading={redux.RegisterUser.fetching}
-              login={login}
               clicked={clicked}
               setClick={setClick}
               error={redux.RegisterUser.error}
@@ -294,6 +301,10 @@ function DefaultDashboard(props) {
               >
                 View
               </Button>
+            ) : redux.sentiment.error && clicked ? (
+              <p style={{ color: 'red', marginLeft: '110px' }}>
+                error of discover twitter{' '}
+              </p>
             ) : (
               ''
             )}
@@ -318,6 +329,8 @@ function DefaultDashboard(props) {
           ''
         )}
       </div>
+
+      <div></div>
       <div className={Classes.profiling}>
         {!redux.sentiment.loaded && clicked && !redux.sentiment.error ? (
           <div className={Classes.containerSpan}>
@@ -329,7 +342,7 @@ function DefaultDashboard(props) {
               }}
             />
           </div>
-        ) : redux.sentiment.loaded && clicked2 && clicked? (
+        ) : redux.sentiment.loaded && clicked2 && clicked ? (
           <div className={Classes.sentiment_container}>
             <div style={{ marginTop: '120px' }}>
               <ReactTableAdvancedCard
@@ -399,8 +412,6 @@ function DefaultDashboard(props) {
               </Card>
             </div>
           </div>
-        ) : redux.sentiment.error && clicked ? (
-          'error of sentiment'
         ) : (
           ''
         )}
