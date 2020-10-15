@@ -96,6 +96,7 @@ function SimilarityForm() {
         { label: '3', id: '3' },
         { label: '4', id: '4' },
         { label: '6', id: '6' },
+        {label: '8', id: '8' },
         { label: '16', id: '16' },
       ],
     },
