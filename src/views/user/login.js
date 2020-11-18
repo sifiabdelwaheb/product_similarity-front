@@ -252,9 +252,9 @@ function Login(props) {
         />
 
         <div className={Classes.home_title}>
-          Discover the Twitter sentiment for a product or brand.
+        Solution Big Data Orientée Marketing Digital
         </div>
-        <div className={Classes.home_title}>TWITTER FEEL</div>
+        <div className={Classes.home_title}>Bienvenue!</div>
         <div className={`${Classes.Container}`}>
           <Similarity />
         </div>
