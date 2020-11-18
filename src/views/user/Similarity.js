@@ -38,6 +38,7 @@ function DefaultDashboard(props) {
   const [loginErr, setLoginErr] = useState(false);
   const [clicked1, setClick1] = useState(false);
   const [clicked2, setClick2] = useState(false);
+  const [clicked3, setClick3] = useState(false);
 
   const [clicked, setClick] = useState(false);
   const [isValid, setValidation] = useState(false);
@@ -116,7 +117,7 @@ function DefaultDashboard(props) {
   const showbutton = false;
 
   const onContactUS1 = () => {
-    setClick1(true);
+    setClick3(true);
 
     if (isValid) {
       dispatch(ChartAction.ChartRequest(onSendForm(chartUsform)));
@@ -186,7 +187,7 @@ function DefaultDashboard(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onContactUS = (twitter) => {
+  const onSentiment = (twitter) => {
     setClick(true);
     // window.location.reload(true);
 
@@ -201,7 +202,7 @@ function DefaultDashboard(props) {
         <Card
           xs="12"
           sm="12"
-          md="15"
+          md="12"
           package={'Les produits le plus similaire à notre produit !'}
           withImgCard={false}
           Card={Classes.Card}
@@ -213,8 +214,8 @@ function DefaultDashboard(props) {
             textButton="Connexion"
             loading={redux.RegisterUser.fetching}
             login={login}
-            clicked={clicked}
-            setClick={setClick}
+            clicked={clicked1}
+            setClick={setClick1}
             error={redux.RegisterUser.error}
             loaded={redux.RegisterUser.loaded}
             setSimilarityForm={setSimilarityForm}
@@ -238,6 +239,7 @@ function DefaultDashboard(props) {
 
         {!redux.ProductSimilarity.loaded &&
         clicked1 &&
+        isValid &&
         !redux.ProductSimilarity.error ? (
           <div className={Classes.containerSpann}>
             <CircularProgress
@@ -248,7 +250,7 @@ function DefaultDashboard(props) {
               }}
             />
           </div>
-        ) : redux.ProductSimilarity.loaded && clicked1 ? (
+        ) : redux.ProductSimilarity.loaded && clicked1 && isValid ? (
           <Card
             xs="8"
             sm="8"
@@ -275,7 +277,7 @@ function DefaultDashboard(props) {
               // errorMessage={redux.contactUs.response}
             />
             <Button
-              onClick={() => onContactUS()}
+              onClick={() => onSentiment()}
               variant="contained"
               style={{
                 backgroundColor: '#da2323',
@@ -286,7 +288,7 @@ function DefaultDashboard(props) {
             >
               Discover
             </Button>
-            {redux.sentiment.loaded ? (
+            {redux.sentiment.loaded && clicked ? (
               <Button
                 onClick={() => onSentimentClick()}
                 variant="contained"
@@ -366,8 +368,8 @@ function DefaultDashboard(props) {
                   textButton="Connexion"
                   //loading={redux.RegisterUser.fetching}
                   //login={login}
-                  clicked={clicked1}
-                  setClick={setClick1}
+                  clicked={clicked3}
+                  setClick={setClick3}
                   error={redux.RegisterUser.error}
                   loaded={redux.RegisterUser.loaded}
                   setContactForm={setChartForm}

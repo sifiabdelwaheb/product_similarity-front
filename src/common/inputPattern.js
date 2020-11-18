@@ -43,9 +43,33 @@ const editor = ({
             name={elementConfig.name}
           />
           {(!valid && clicked) || (clicked && error && error !== null) ? (
-            <span style={{ color: 'red' }}>
+            <span style={{ color: 'red' }}>{elementConfig.errormsg}</span>
+          ) : null}
+        </FormGroup>
+      );
+      break;
+    case 'InputNumber':
+      inputElement = (
+        <FormGroup>
+          <label className="form-group has-float-label mb-4">
+            <IntlMessages id={elementConfig.label} />
+          </label>
+          <Input
+            style={
+              (!valid && clicked) || (clicked && error && error !== null)
+                ? { border: 'red 1px solid' }
+                : { border: null }
+            }
+            onChange={onChange}
+            {...elementConfig}
+            value={value}
+            type={type}
+            name={elementConfig.name}
+          />
+          {(!valid && clicked) || (clicked && error && error !== null) ? (
+            <span style={{ color: 'red', fontSize: '12px' }}>
               {' '}
-              <IntlMessages id={'input.invalid'} />
+              <IntlMessages id={elementConfig.errormsg} />
             </span>
           ) : null}
         </FormGroup>
@@ -54,7 +78,7 @@ const editor = ({
     case 'Select':
       inputElement = (
         <FormGroup>
-          <label className="form-group has-float-label mb-4">
+          <label className="form-group has-float-label mb-1">
             <IntlMessages id={elementConfig.label} />
           </label>
           <Select
@@ -69,7 +93,7 @@ const editor = ({
             value={value}
             // defaultInputValue={value}
           />
-          {!valid && clicked && <p className="text-danger" />}
+          {!valid && clicked && <p className="text-danger">Select value</p>}
         </FormGroup>
       );
 

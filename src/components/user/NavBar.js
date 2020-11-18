@@ -101,10 +101,13 @@ function NavBar(props) {
             </Nav>
             <Button
               style={{
-                backgroundColor: 'white',
+                backgroundColor: '#496e93',
                 marginLeft: '50px',
-                fontSize: '16px',
-                color: '#000',
+                fontSize: '14px',
+                fontWeight:'600',
+                color: '#fff',
+                borderRadius:"9px",
+                borderColor:'#496e93'
               }}
               className={`btn-shadow btn-multiple-state ${
                 props.loading ? 'show-spinner' : ''
@@ -118,15 +121,21 @@ function NavBar(props) {
                 <span className="bounce3" />
               </span>
 
-              <span className="label">Register</span>
+              <span className="label">
+                {' '}
+                <IntlMessages id={'user.register-button'} />
+              </span>
             </Button>
 
             <Button
               style={{
-                backgroundColor: 'white',
-                marginLeft: '50px',
-                fontSize: '16px',
-                color: '#000',
+                backgroundColor: '#496e93',
+                marginLeft: '20px',
+                fontSize: '14px',
+                fontWeight:'600',
+                color: 'white',
+                borderRadius:"9px",
+                borderColor:'#496e93'
               }}
               className={`btn-shadow btn-multiple-state ${
                 props.loading ? 'show-spinner' : ''
@@ -140,7 +149,10 @@ function NavBar(props) {
                 <span className="bounce3" />
               </span>
 
-              <span className="label">ADMIN</span>
+              <span className="label">
+                {' '}
+                <IntlMessages id={'user.login-button'} />
+              </span>
             </Button>
           </Collapse>
         </div>

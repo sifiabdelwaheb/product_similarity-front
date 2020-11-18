@@ -1,5 +1,6 @@
 export function checkValidity(value, rules) {
   let isValid = true;
+
   if (rules.required || typeof value === String) {
     isValid = value.trim().length !== 0 && isValid;
   }
@@ -7,6 +8,7 @@ export function checkValidity(value, rules) {
     isValid = value.length >= rules.minLength && isValid;
   }
   if (rules.maxLength) {
+    const minLength = 5;
     isValid = value.length <= rules.maxLength && isValid;
   }
   if (rules.isEmail) {

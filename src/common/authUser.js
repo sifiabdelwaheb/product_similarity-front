@@ -1,33 +1,34 @@
 function loginForm() {
   return {
     useremail: {
-      elementType: "Input",
+      elementType: 'Input',
       elementConfig: {
-        type: "text",
-        label: "useremail"
+        type: 'text',
+        label: 'user.useremail',
         // prefix: <Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />
       },
-      value: "",
+      value: '',
       validation: {
-        required: true
+        required: true,
+        isEmail: true,
       },
       valid: false,
-      touched: false
+      touched: false,
     },
     password: {
-      elementType: "Input",
+      elementType: 'Input',
       elementConfig: {
-        type: "password",
-        label: "user.password"
+        type: 'password',
+        label: 'user.password',
         // prefix: <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
       },
-      value: "",
+      value: '',
       validation: {
-        required: true
+        required: true,
       },
       valid: false,
-      touched: false
-    }
+      touched: false,
+    },
   };
 }
 

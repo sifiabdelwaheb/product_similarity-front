@@ -101,6 +101,7 @@ function DefaultDashboard(props) {
 
       {!redux.ProductSimilarity.loaded &&
       clicked &&
+      isValid &&
       !redux.ProductSimilarity.error ? (
         <div className={Classes.containerSpann}>
           <CircularProgress
@@ -111,7 +112,7 @@ function DefaultDashboard(props) {
             }}
           />
         </div>
-      ) : redux.ProductSimilarity.loaded && clicked ? (
+      ) : redux.ProductSimilarity.loaded && clicked && isValid ? (
         <Card
           xs="8"
           sm="8"
@@ -124,19 +125,6 @@ function DefaultDashboard(props) {
           <p style={{ color: 'green' }}>
             {redux.ProductSimilarity.response.predict}
           </p>
-          <Button
-            onClick={() => onContactUS()}
-            variant="contained"
-            color="secondary"
-            style={{
-              backgroundColor: '#404955',
-              fontWeight: 'bold',
-              height: '40px',
-              width: '120px',
-            }}
-          >
-            View
-          </Button>
         </Card>
       ) : redux.ProductSimilarity.error &&
         !redux.ProductSimilarity.loaded &&

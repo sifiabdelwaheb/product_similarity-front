@@ -45,6 +45,7 @@ module.exports = {
   'user.forgot-password': 'Mot de passe oublié',
   'user.email': 'Email',
   'user.password': 'Mot de passe',
+  'user.adress': 'Adresse',
   'user.forgot-password-question': 'Mot de passe oublié?',
   'user.fullname': 'Nom complet',
   'user.login-button': "S'IDENTIFIER",
@@ -658,6 +659,6 @@ module.exports = {
   'wizard.registered': 'Your registration completed successfully!',
   'wizard.async': 'Async save for 3 seconds!',
 
-  'topnav.signout':'Signout'
-
+  'topnav.signout': 'Signout',
+  'user.useremail': 'E-mail',
 };

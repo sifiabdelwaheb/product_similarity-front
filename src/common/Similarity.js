@@ -31,9 +31,9 @@ function SimilarityForm() {
       ],
     },
     prix: {
-      elementType: 'Input',
+      elementType: 'InputNumber',
       elementConfig: {
-        type: 'text',
+        type: 'number',
         label: 'Prix :',
         name: 'prix',
         // prefix: <Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />
@@ -41,6 +41,7 @@ function SimilarityForm() {
       value: '',
       validation: {
         required: true,
+        isNumber: true,
       },
       valid: false,
       touched: false,

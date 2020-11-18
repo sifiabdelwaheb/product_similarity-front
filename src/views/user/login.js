@@ -30,6 +30,7 @@ function Login(props) {
   const dispatch = useDispatch();
   const [loginErr, setLoginErr] = useState(false);
   const [clicked, setClick] = useState(false);
+  const [clicked1, setClick1] = useState(false);
   const [isValid, setValidation] = useState(false);
   const [forms, setForm] = useState(loginForms());
   const [contactUsform, setContactForm] = useState(contactUsForms().contactUs);
@@ -116,7 +117,7 @@ function Login(props) {
     window.dispatchEvent(event);
   }, 350);
   const onContactUS = () => {
-    setClick(true);
+    setClick1(true);
     if (isValid) {
       dispatch(
         registerUserAction.RegisterUserRequest(onSendForm(contactUsform)),
@@ -186,8 +187,9 @@ function Login(props) {
           isOpen={modal1}
           toggle={toggle1}
           className={Classes.Modalregister}
+          
         >
-          <ModalHeader toggle={toggle1}> INSCRIPTION</ModalHeader>
+          <ModalHeader toggle={toggle1}>  <IntlMessages id={'user.register'} /></ModalHeader>
           <ModalBody>
             <Wrapper
               // onClick={() => console.log(onSendForm(contactUsform))}
@@ -195,8 +197,8 @@ function Login(props) {
               textButton="Connexion"
               loading={redux.RegisterUser.fetching}
               login={login}
-              clicked={clicked}
-              setClick={setClick}
+              clicked={clicked1}
+              setClick={setClick1}
               error={redux.RegisterUser.error}
               loaded={redux.RegisterUser.loaded}
               setContactForm={setContactForm}
@@ -207,8 +209,10 @@ function Login(props) {
               <IntlMessages id="pages.send" />
             </Button>
 
-            {redux.RegisterUser.loaded && clicked ? (
+            {redux.RegisterUser.loaded && clicked1 ? (
               <p style={{ color: 'green' }}>user register successfuly</p>
+            ) : redux.RegisterUser.error && clicked1 ? (
+              <p style={{ color: 'red' }}>user register failure</p>
             ) : (
               ''
             )}
@@ -220,16 +224,18 @@ function Login(props) {
         />
 
         <Particles
-          height="320px"
+          height="380px"
           style={{
             width: '100%',
             backgroundColor: '#496E93',
+           
+            
           }}
           params={{
             height: '100px',
             particles: {
               number: {
-                value: 80,
+                value: 90,
               },
               color: {
                 value: '#ccc',

@@ -47,6 +47,7 @@ module.exports = {
   'user.password': 'Password',
   'user.forgot-password-question': 'Forget password?',
   'user.fullname': 'Full Name',
+  'user.adress': 'Adress',
   'user.login-button': 'LOGIN',
   'user.register-button': 'REGISTER',
   'user.reset-password-button': 'RESET',
@@ -57,6 +58,7 @@ module.exports = {
   'user.reset-password': 'Reset Password',
   'user.status-true': 'Yes',
   'user.status-false': 'No',
+  'user.msg': 'invalid input :enter number value',
   /* 03.Menu */
   'menu.app': 'Home',
   'menu.dashboards': 'Dashboards',
@@ -657,7 +659,7 @@ module.exports = {
   'wizard.prev': 'Back',
   'wizard.registered': 'Your registration completed successfully!',
   'wizard.async': 'Async save for 3 seconds!',
-  'topnav.signout':'Signout'
- 
-
+  'topnav.signout': 'Signout',
+  'user.useremail': 'E-mail',
+  'modal.register': 'Register',
 };

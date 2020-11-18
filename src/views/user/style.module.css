@@ -1,17 +1,15 @@
 @font-face {
   font-family: 'Chivo-Italic';
-  src: local('Chivo-Italic'), url('../../assets/Chivo-Italic.ttf') format('opentype');
+  src: local('Chivo-Italic'),
+    url('../../assets/Chivo-Italic.ttf') format('opentype');
 }
 @font-face {
   font-family: 'Chivo-Bold';
-  src: local('Chivo-Bold'), url('../../assets/Chivo-Bold.ttf') format('opentype');
+  src: local('Chivo-Bold'),
+    url('../../assets/Chivo-Bold.ttf') format('opentype');
 }
 
-
-.RowHome {
-}
 .FooterHome {
-  width: 100%;
   margin-top: 18%;
   background-color: #cf0e48;
   color: white;
@@ -138,7 +136,7 @@
 .Modal {
   width: 78%;
 }
-.Modalregister{
+.Modalregister {
   width: 100%;
 }
 
@@ -229,5 +227,5 @@
   margin-top: -10%;
   margin-bottom: 4%;
   position: relative;
-  font-family: Chivo-Italic,sans-serif;
+  font-family: Chivo-Italic, sans-serif;
 }

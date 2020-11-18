@@ -17,7 +17,7 @@
 .TopNav {
   background-color: #cf0e48;
   color: white;
-  position: fixed!important;
+  
   z-index: 1000;
   width: 100%;
   opacity: 0.9;
